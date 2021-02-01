@@ -12,27 +12,25 @@ int main(int argc, char** argv) {
 
     int childPid;       /* int to keep track of the children pid */
     int numChildren;    /* number of children to create */
-    int exitStatus;       //trying to catpure exit status 
+    int childStatus;    /* catpure child exit status */
 
     printf("[Parent] pid %d\n", getpid());
 
     /*
-     * creates random number of children
+     * Creates random number of children
      */
     for(int i = 0; i < 3; i++) {
         if(childPid = fork() == 0) {
             printf( "\t[Child] pid %d from pid %d\n", getpid(), getppid());
-            printf( "\t[Child] pid %d exiting with status code %d\n",
-                getpid(), i);
+            printf( "\t[Child] pid %d exiting with status code %d\n", getpid(), i);
             sleep(3);
             exit(i);
         } else {
-	        waitpid(childPid, &exitStatus, 0);
-            // printf("[Parent] Child exited with status code %d\n", exitStatus);
+	        waitpid(childPid, &childStatus, 0);
         }
-        if(WIFEXITED(exitStatus)) {
-            const int es = WEXITSTATUS(exitStatus);
-            printf("[Parent] Child exited with status code %d\n", es);
+        if(WIFEXITED(childStatus)) {
+            const int exit = WEXITSTATUS(childStatus);
+            printf("[Parent] Child exited with status code %d\n", exit);
         }
     }
 
