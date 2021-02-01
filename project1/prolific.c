@@ -12,6 +12,7 @@ int main(int argc, char** argv) {
 
     int childPid;       /* int to keep track of the children pid */
     int numChildren;    /* number of children to create */
+    int exitStatus;       //trying to catpure exit status 
 
     printf("[Parent] pid %d\n", getpid());
 
@@ -26,8 +27,12 @@ int main(int argc, char** argv) {
             sleep(3);
             exit(i);
         } else {
-            waitpid(childPid);
-            printf("[Parent] Child exited with status code %d\n", i);
+	        waitpid(childPid, &exitStatus, 0);
+            // printf("[Parent] Child exited with status code %d\n", exitStatus);
+        }
+        if(WIFEXITED(exitStatus)) {
+            const int es = WEXITSTATUS(exitStatus);
+            printf("[Parent] Child exited with status code %d\n", es);
         }
     }
 
