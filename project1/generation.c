@@ -26,7 +26,6 @@ int main(int argc, char** argv) {
 
     createDecendants(numDecendants);
     
-
     return 0;
 }
 
