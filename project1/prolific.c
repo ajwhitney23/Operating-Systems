@@ -33,7 +33,6 @@ int main(int argc, char** argv) {
     }
 
     printf("I'm feeling prolific!\n");
-    printf("[Parent] pid %d\n", getpid());
 
     /*
      * Creates random number of children
