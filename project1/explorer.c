@@ -12,8 +12,8 @@ int main(int argc, char** argv) {
     int seed;           /* seed converted to int */
     int childPID;       /* PID of current child */
     char* randDirs[6];  /* list or directories to be visited */
-    char* command[] = {"ls", "-alh", NULL};
-    char* dirList[6] = {"/home", "/proc", "/proc/sys", "/usr", "/usr/bin", "/bin"};
+    char* command[] = {"ls", "-alh", NULL};                                             /* command to be run by child */
+    char* dirList[6] = {"/home", "/proc", "/proc/sys", "/usr", "/usr/bin", "/bin"};     /* list of directories to choose from */
 
     readSeed = readFile();
     seed = atoi(readSeed);
