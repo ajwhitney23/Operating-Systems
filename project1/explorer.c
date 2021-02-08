@@ -33,13 +33,14 @@ int main(int argc, char** argv) {
     printf("It's time to see the world/file system!\n");
 
     /*
-     * Creates 6 children
+     * Creates 5 children in a random directory
      */
-    for(int i = 0; i < 6; i++) {
-        char cwd[256]; 
-        if(chdir(randDirs[i]) == 0) {
+    for(int i = 0; i < 5; i++) {
+        char cwd[256];
+        int randDir = rand() % 6;
+        if(chdir(randDirs[randDir]) == 0) {
             getcwd(cwd, sizeof(cwd));
-            printf("Selection #%d: %s [SUCCESS]\n", i+1, cwd);
+            printf("Selection #%d: %s [SUCCESS]\n", randDir, cwd);
             printf("Current reported directory: %s\n", cwd);
         } else {
             perror("chdir() failed\n");
