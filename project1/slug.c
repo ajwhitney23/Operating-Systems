@@ -21,7 +21,7 @@ int main( int argc, char *argv[] ) {
     fclose(fp);
     printf("[Slug PID: %d]: Read seed value: %s\n",getpid(), buffer);
 
-    int seed_int = atoi(buffer)
+    int seed_int = atoi(buffer);
     //set seed and make random numbers
     srand(seed_int);
 
