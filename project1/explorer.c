@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
         int randDir = rand() % 6;
         if(chdir(randDirs[randDir]) == 0) {
             getcwd(cwd, sizeof(cwd));
-            printf("Selection #%d: %s [SUCCESS]\n", randDir, cwd);
+            printf("Selection #%d: %s [SUCCESS]\n", i+1, cwd);
             printf("Current reported directory: %s\n", cwd);
         } else {
             perror("chdir() failed\n");
