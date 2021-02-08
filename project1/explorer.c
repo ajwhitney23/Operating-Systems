@@ -24,16 +24,16 @@ int main(int argc, char** argv) {
     srand(seed);
 
     /*
-     * Generate random number for each child
+     * Generate random directory for each child to visit
      */
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < 5; i++) {
         randDirs[i] = dirList[rand() % 6];
     }
 
     printf("It's time to see the world/file system!\n");
 
     /*
-     * Creates 5 children in a random directory
+     * Creates 5 children which will run a command in a random directory
      */
     for(int i = 0; i < 5; i++) {
         char cwd[256];
