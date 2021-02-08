@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
     printf("It's time to see the world/file system!\n");
 
     /*
-     * Creates random number of children
+     * Creates 6 children
      */
     for(int i = 0; i < 6; i++) {
         char cwd[256]; 
