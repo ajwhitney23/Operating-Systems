@@ -19,18 +19,22 @@ int main( int argc, char *argv[] ) {
     FILE *fp = fopen(filename, "r");
     fgets(buffer, sizeof(buffer), fp);
     fclose(fp);
-    printf("Read seed value: %s\n", buffer);
+    printf("[Slug PID: %d]: Read seed value: %s\n",getpid(), buffer);
 
+    int seed_int = atoi(buffer)
     //set seed and make random numbers
-    srand(atoi(buffer));
+    srand(seed_int);
+
+    printf("[Slug PID: %d]: Read seed value (converted to integer): %d\n",getpid(), seed_int);
+
     int wait_time = rand() % 4 + 1;
     int coin_flip = rand() % 2;
 
     //delay
-    printf("[Child, PID: %d]: Delay time is %d seconds. Coin flip: %d\n", getpid(), wait_time, coin_flip);
-    printf("[Child, PID: %d]: I'll get the job done. Eventually...\n", getpid());
+    printf("[Slug PID: %d]: Delay time is %d seconds. Coin flip: %d\n", getpid(), wait_time, coin_flip);
+    printf("[Slug PID: %d]: I'll get the job done. Eventually...\n", getpid());
     sleep(wait_time);
-    printf("[Child, PID: %d]: Break time is over! I am running the '", getpid());
+    printf("[Slug PID: %d]: Break time is over! I am running the '", getpid());
 
     //create args for exec
     char *args_0[]={"last", "-d", "--fulltimes", NULL};
