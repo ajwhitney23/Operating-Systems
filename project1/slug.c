@@ -27,10 +27,10 @@ int main( int argc, char *argv[] ) {
     int coin_flip = rand() % 2;
 
     //delay
-    printf("Delay time is %d seconds. Coin flip: %d\n", wait_time, coin_flip);
-    printf("I'll get the job done. Eventually...\n");
+    printf("[Child, PID: %d]: Delay time is %d seconds. Coin flip: %d\n", getpid(), wait_time, coin_flip);
+    printf("[Child, PID: %d]: I'll get the job done. Eventually...\n", getpid());
     sleep(wait_time);
-    printf("Break time is over! I am running the '");
+    printf("[Child, PID: %d]: Break time is over! I am running the '", getpid());
 
     //create args for exec
     char *args_0[]={"last", "-d", "--fulltimes", NULL};
