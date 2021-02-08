@@ -1,43 +1,33 @@
 Author:				Andrew Whitney, Nathan Bargman
 Date:				01/04/2021
-Version:			V1.0
+Version:			V1.1
 Project ID:			Project 1
 CS Class:			CS3013
 Programming Language:		C
-OS/Hardware dependencies:	how does the program rely on the operating system,
-				   or on the hardware?
+OS/Hardware dependencies:	Ubuntu 16.04
 
-Problem Description:		a statement of the requirements
-
-Overall Design:			main design decisions about the program
-	System structure	
-	Data representation	
-	Algorithms 		
+Problem Description:		Exploring how processes work, how they share information, and how they are organzied.	
 
 Program Assumptions 
       and Restrictions:		seed.txt, seed_x_x.txt files must be present
 
-Interfaces:			how the program interacts with users, data or programs
-	User
-	File/D-B
-	Program/Module
-
 Implementation Details:
-	Data			implementation details of data representation
-	Variables		key variables and their scopes
-	Algorithm		implementation details of algorithm(s) used
+	Data			ints, timespec, char*, char**
+	Variables		N/A 
+	Algorithm		for loops and recursion
 
-How to build the program:	make all to build all binaries
+How to build the program:   make all to build all binaries
                             make clean to remove all binaries
                             make prolific to build prolific binary
                             make generation to build generation binary
+                            make explorer to build explorer binary
                             make slugs to build slug and slugrace binary
 
-Program Source:			prolific.c, generation.c, slug.c, slugrace.c
+Program Source:			prolific.c, generation.c, explorer.c, slug.c, slugrace.c
 
 Additional Files:		seed.txt, seed_slug_1.txt, seed_slug_2.txt, seed_slug_3.txt, seed_slug_4.txt
 
-Results:			listing of sample run(s) of the program
+Results:
 
 Prolific Output:
 
@@ -170,172 +160,7 @@ drwxr-xr-x 1 root root  4.0K Jan 29 09:35 ..
 lrwxrwxrwx 1 root root     5 Aug 13  2019 btrfsck -> btrfs
 -rwxr-xr-x 1 root root  272K Aug 13  2019 btrfs-convert
 -rwxr-xr-x 1 root root  244K Aug 13  2019 btrfs-debug-tree
--rwxr-xr-x 1 root root  240K Aug 13  2019 btrfs-find-root
--rwxr-xr-x 1 root root  264K Aug 13  2019 btrfs-image
--rwxr-xr-x 1 root root  244K Aug 13  2019 btrfs-map-logical
--rwxr-xr-x 1 root root  240K Aug 13  2019 btrfs-select-super
--rwxr-xr-x 1 root root  248K Aug 13  2019 btrfs-show-super
--rwxr-xr-x 1 root root  244K Aug 13  2019 btrfstune
--rwxr-xr-x 1 root root  240K Aug 13  2019 btrfs-zero-log
--rwxr-xr-x 3 root root   31K Jul  4  2019 bunzip2
--rwxr-xr-x 1 root root  1.9M Mar  7  2019 busybox
--rwxr-xr-x 3 root root   31K Jul  4  2019 bzcat
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzcmp -> bzdiff
--rwxr-xr-x 1 root root  2.1K Jul  4  2019 bzdiff
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzegrep -> bzgrep
--rwxr-xr-x 1 root root  4.8K Jul  4  2019 bzexe
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzfgrep -> bzgrep
--rwxr-xr-x 1 root root  3.6K Jul  4  2019 bzgrep
--rwxr-xr-x 3 root root   31K Jul  4  2019 bzip2
--rwxr-xr-x 1 root root   15K Jul  4  2019 bzip2recover
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzless -> bzmore
--rwxr-xr-x 1 root root  1.3K Jul  4  2019 bzmore
--rwxr-xr-x 1 root root   51K Mar  2  2017 cat
--rwxr-xr-x 1 root root   15K Feb  7  2016 chacl
--rwxr-xr-x 1 root root   59K Mar  2  2017 chgrp
--rwxr-xr-x 1 root root   55K Mar  2  2017 chmod
--rwxr-xr-x 1 root root   63K Mar  2  2017 chown
--rwxr-xr-x 1 root root   11K Sep 22  2016 chvt
--rwxr-xr-x 1 root root  148K Mar  2  2017 cp
--rwxr-xr-x 1 root root  139K Nov  5  2019 cpio
--rwxr-xr-x 1 root root  151K Feb 17  2016 dash
--rwxr-xr-x 1 root root   67K Mar  2  2017 date
--rwxr-xr-x 1 root root   71K Mar  2  2017 dd
--rwxr-xr-x 1 root root   96K Mar  2  2017 df
--rwxr-xr-x 1 root root  124K Mar  2  2017 dir
--rwxr-xr-x 1 root root   60K Jan 27  2020 dmesg
-lrwxrwxrwx 1 root root     8 Nov 24  2015 dnsdomainname -> hostname
-lrwxrwxrwx 1 root root     8 Nov 24  2015 domainname -> hostname
--rwxr-xr-x 1 root root   81K Sep 22  2016 dumpkeys
--rwxr-xr-x 1 root root   31K Mar  2  2017 echo
--rwxr-xr-x 1 root root   51K Apr 26  2014 ed
--rwxr-xr-x 1 root root    28 Apr 29  2016 egrep
--rwxr-xr-x 1 root root   27K Mar  2  2017 false
--rwxr-xr-x 1 root root   11K Sep 22  2016 fgconsole
--rwxr-xr-x 1 root root    28 Apr 29  2016 fgrep
--rwxr-xr-x 1 root root   49K Jan 27  2020 findmnt
--rwxr-xr-x 1 root root  1.2K Aug 13  2019 fsck.btrfs
--rwxr-xr-x 1 root root   36K Aug 20  2019 fuser
--rwsr-xr-x 1 root root   31K Jul 12  2016 fusermount
--rwxr-xr-x 1 root root   24K Feb  7  2016 getfacl
--rwxr-xr-x 1 root root  207K Apr 29  2016 grep
--rwxr-xr-x 2 root root  2.3K Oct 27  2014 gunzip
--rwxr-xr-x 1 root root  5.8K Oct 27  2014 gzexe
--rwxr-xr-x 1 root root   96K Oct 27  2014 gzip
--rwxr-xr-x 1 root root   15K Nov 24  2015 hostname
--rwxr-xr-x 1 root root  368K Apr 16  2019 ip
--rwxr-xr-x 1 root root  488K Sep  4 05:31 journalctl
--rwxr-xr-x 1 root root   11K Sep 22  2016 kbd_mode
--rwxr-xr-x 1 root root   23K Mar  5  2020 kill
--rwxr-xr-x 1 root root  148K Nov 12  2018 kmod
--rwxr-xr-x 1 root root  167K Apr  5  2017 less
--rwxr-xr-x 1 root root   11K Apr  5  2017 lessecho
-lrwxrwxrwx 1 root root     8 Apr  5  2017 lessfile -> lesspipe
--rwxr-xr-x 1 root root   20K Apr  5  2017 lesskey
--rwxr-xr-x 1 root root  7.6K Apr  5  2017 lesspipe
--rwxr-xr-x 1 root root   55K Mar  2  2017 ln
--rwxr-xr-x 1 root root  109K Sep 22  2016 loadkeys
--rwxr-xr-x 1 root root   47K Mar 26  2019 login
--rwxr-xr-x 1 root root  444K Sep  4 05:31 loginctl
--rwxr-xr-x 1 root root  103K Mar 21  2019 lowntfs-3g
--rwxr-xr-x 1 root root  124K Mar  2  2017 ls
--rwxr-xr-x 1 root root   76K Jan 27  2020 lsblk
-lrwxrwxrwx 1 root root     4 Nov 12  2018 lsmod -> kmod
--rwxr-xr-x 1 root root   76K Mar  2  2017 mkdir
--rwxr-xr-x 1 root root  260K Aug 13  2019 mkfs.btrfs
--rwxr-xr-x 1 root root   63K Mar  2  2017 mknod
--rwxr-xr-x 1 root root   39K Mar  2  2017 mktemp
--rwxr-xr-x 1 root root   39K Jan 27  2020 more
--rwsr-xr-x 1 root root   40K Jan 27  2020 mount
--rwxr-xr-x 1 root root   15K Jan 27  2020 mountpoint
-lrwxrwxrwx 1 root root    20 Aug 22 04:09 mt -> /etc/alternatives/mt
--rwxr-xr-x 1 root root   68K Nov  5  2019 mt-gnu
--rwxr-xr-x 1 root root  128K Mar  2  2017 mv
--rwxr-xr-x 1 root root  204K Feb 15  2017 nano
-lrwxrwxrwx 1 root root    20 Aug 22 04:09 nc -> /etc/alternatives/nc
--rwxr-xr-x 1 root root   31K Dec  3  2012 nc.openbsd
-lrwxrwxrwx 1 root root    24 Aug 22 04:09 netcat -> /etc/alternatives/netcat
--rwxr-xr-x 1 root root  117K Jun 30  2014 netstat
--rwxr-xr-x 1 root root  663K Sep  4 05:31 networkctl
-lrwxrwxrwx 1 root root     8 Nov 24  2015 nisdomainname -> hostname
--rwxr-xr-x 1 root root  139K Mar 21  2019 ntfs-3g
--rwxr-xr-x 1 root root   11K Mar 21  2019 ntfs-3g.probe
--rwxr-xr-x 1 root root   67K Mar 21  2019 ntfs-3g.secaudit
--rwxr-xr-x 1 root root   18K Mar 21  2019 ntfs-3g.usermap
--rwxr-xr-x 1 root root   27K Mar 21  2019 ntfscat
--rwxr-xr-x 1 root root   31K Mar 21  2019 ntfscluster
--rwxr-xr-x 1 root root   35K Mar 21  2019 ntfscmp
--rwxr-xr-x 1 root root   35K Mar 21  2019 ntfsfallocate
--rwxr-xr-x 1 root root   39K Mar 21  2019 ntfsfix
--rwxr-xr-x 1 root root   55K Mar 21  2019 ntfsinfo
--rwxr-xr-x 1 root root   32K Mar 21  2019 ntfsls
--rwxr-xr-x 1 root root   31K Mar 21  2019 ntfsmove
--rwxr-xr-x 1 root root   39K Mar 21  2019 ntfstruncate
--rwxr-xr-x 1 root root   47K Mar 21  2019 ntfswipe
-lrwxrwxrwx 1 root root     6 Sep 22  2016 open -> openvt
--rwxr-xr-x 1 root root   19K Sep 22  2016 openvt
-lrwxrwxrwx 1 root root    14 Feb  5  2016 pidof -> /sbin/killall5
--rwsr-xr-x 1 root root   44K May  7  2014 ping
--rwsr-xr-x 1 root root   44K May  7  2014 ping6
--rwxr-xr-x 1 root root   39K May  9  2018 plymouth
--rwxr-xr-x 1 root root   96K Mar  5  2020 ps
--rwxr-xr-x 1 root root   31K Mar  2  2017 pwd
-lrwxrwxrwx 1 root root     4 Jul 12  2019 rbash -> bash
--rwxr-xr-x 1 root root   39K Mar  2  2017 readlink
--rwxr-xr-x 1 root root    89 Apr 26  2014 red
--rwxr-xr-x 1 root root   59K Mar  2  2017 rm
--rwxr-xr-x 1 root root   39K Mar  2  2017 rmdir
-lrwxrwxrwx 1 root root     4 Feb 15  2017 rnano -> nano
--rwxr-xr-x 1 root root   19K Jan 26  2016 run-parts
--rwxr-xr-x 1 root root   72K Feb 11  2016 sed
--rwxr-xr-x 1 root root   36K Feb  7  2016 setfacl
--rwxr-xr-x 1 root root   40K Sep 22  2016 setfont
--rwxr-xr-x 1 root root   30K Apr 10  2019 setupcon
-lrwxrwxrwx 1 root root     4 Feb 17  2016 sh -> dash
-lrwxrwxrwx 1 root root     4 Feb 17  2016 sh.distrib -> dash
--rwxr-xr-x 1 root root   31K Mar  2  2017 sleep
--rwxr-xr-x 1 root root  114K Apr 16  2019 ss
-lrwxrwxrwx 1 root root     7 Mar  7  2019 static-sh -> busybox
--rwxr-xr-x 1 root root   71K Mar  2  2017 stty
--rwsr-xr-x 1 root root   40K Mar 26  2019 su
--rwxr-xr-x 1 root root   31K Mar  2  2017 sync
--rwxr-xr-x 1 root root  649K Sep  4 05:31 systemctl
-lrwxrwxrwx 1 root root    20 Sep  4 05:31 systemd -> /lib/systemd/systemd
--rwxr-xr-x 1 root root   51K Sep  4 05:31 systemd-ask-password
--rwxr-xr-x 1 root root   39K Sep  4 05:31 systemd-escape
--rwxr-xr-x 1 root root   63K Sep  4 05:31 systemd-hwdb
--rwxr-xr-x 1 root root  276K Sep  4 05:31 systemd-inhibit
--rwxr-xr-x 1 root root   47K Sep  4 05:31 systemd-machine-id-setup
--rwxr-xr-x 1 root root   35K Sep  4 05:31 systemd-notify
--rwxr-xr-x 1 root root  143K Sep  4 05:31 systemd-tmpfiles
--rwxr-xr-x 1 root root   67K Sep  4 05:31 systemd-tty-ask-password-agent
--rwxr-xr-x 1 root root   23K Jan 27  2020 tailf
--rwxr-xr-x 1 root root  375K Jan 11 12:30 tar
--rwxr-xr-x 1 root root   11K Jan 26  2016 tempfile
--rwxr-xr-x 1 root root   63K Mar  2  2017 touch
--rwxr-xr-x 1 root root   27K Mar  2  2017 true
--rwxr-xr-x 1 root root  439K Sep  4 05:31 udevadm
--rwxr-xr-x 1 root root   14K Jul 12  2016 ulockmgr_server
--rwsr-xr-x 1 root root   27K Jan 27  2020 umount
--rwxr-xr-x 1 root root   31K Mar  2  2017 uname
--rwxr-xr-x 2 root root  2.3K Oct 27  2014 uncompress
--rwxr-xr-x 1 root root  2.7K Sep 22  2016 unicode_start
--rwxr-xr-x 1 root root  124K Mar  2  2017 vdir
--rwxr-xr-x 1 root root   31K Jan 27  2020 wdctl
--rwxr-xr-x 1 root root   946 Jan 26  2016 which
--rwxr-xr-x 1 root root   27K Jan 18  2016 whiptail
-lrwxrwxrwx 1 root root     5 Jan 29 09:35 wslpath -> /init
-lrwxrwxrwx 1 root root     8 Nov 24  2015 ypdomainname -> hostname
--rwxr-xr-x 1 root root  1.9K Oct 27  2014 zcat
--rwxr-xr-x 1 root root  1.8K Oct 27  2014 zcmp
--rwxr-xr-x 1 root root  5.7K Oct 27  2014 zdiff
--rwxr-xr-x 1 root root   140 Oct 27  2014 zegrep
--rwxr-xr-x 1 root root   140 Oct 27  2014 zfgrep
--rwxr-xr-x 1 root root  2.1K Oct 27  2014 zforce
--rwxr-xr-x 1 root root  5.8K Oct 27  2014 zgrep
--rwxr-xr-x 1 root root  2.0K Oct 27  2014 zless
--rwxr-xr-x 1 root root  1.9K Oct 27  2014 zmore
--rwxr-xr-x 1 root root  5.0K Oct 27  2014 znew
+[truncated 165 lines]
 [Parent]: Child 1772 exited with status code 0. Onward!
 Selection #3: /bin [SUCCESS]
 Current reported directory: /bin
@@ -355,167 +180,7 @@ lrwxrwxrwx 1 root root     5 Aug 13  2019 btrfsck -> btrfs
 -rwxr-xr-x 1 root root  244K Aug 13  2019 btrfs-map-logical
 -rwxr-xr-x 1 root root  240K Aug 13  2019 btrfs-select-super
 -rwxr-xr-x 1 root root  248K Aug 13  2019 btrfs-show-super
--rwxr-xr-x 1 root root  244K Aug 13  2019 btrfstune
--rwxr-xr-x 1 root root  240K Aug 13  2019 btrfs-zero-log
--rwxr-xr-x 3 root root   31K Jul  4  2019 bunzip2
--rwxr-xr-x 1 root root  1.9M Mar  7  2019 busybox
--rwxr-xr-x 3 root root   31K Jul  4  2019 bzcat
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzcmp -> bzdiff
--rwxr-xr-x 1 root root  2.1K Jul  4  2019 bzdiff
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzegrep -> bzgrep
--rwxr-xr-x 1 root root  4.8K Jul  4  2019 bzexe
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzfgrep -> bzgrep
--rwxr-xr-x 1 root root  3.6K Jul  4  2019 bzgrep
--rwxr-xr-x 3 root root   31K Jul  4  2019 bzip2
--rwxr-xr-x 1 root root   15K Jul  4  2019 bzip2recover
-lrwxrwxrwx 1 root root     6 Jul  4  2019 bzless -> bzmore
--rwxr-xr-x 1 root root  1.3K Jul  4  2019 bzmore
--rwxr-xr-x 1 root root   51K Mar  2  2017 cat
--rwxr-xr-x 1 root root   15K Feb  7  2016 chacl
--rwxr-xr-x 1 root root   59K Mar  2  2017 chgrp
--rwxr-xr-x 1 root root   55K Mar  2  2017 chmod
--rwxr-xr-x 1 root root   63K Mar  2  2017 chown
--rwxr-xr-x 1 root root   11K Sep 22  2016 chvt
--rwxr-xr-x 1 root root  148K Mar  2  2017 cp
--rwxr-xr-x 1 root root  139K Nov  5  2019 cpio
--rwxr-xr-x 1 root root  151K Feb 17  2016 dash
--rwxr-xr-x 1 root root   67K Mar  2  2017 date
--rwxr-xr-x 1 root root   71K Mar  2  2017 dd
--rwxr-xr-x 1 root root   96K Mar  2  2017 df
--rwxr-xr-x 1 root root  124K Mar  2  2017 dir
--rwxr-xr-x 1 root root   60K Jan 27  2020 dmesg
-lrwxrwxrwx 1 root root     8 Nov 24  2015 dnsdomainname -> hostname
-lrwxrwxrwx 1 root root     8 Nov 24  2015 domainname -> hostname
--rwxr-xr-x 1 root root   81K Sep 22  2016 dumpkeys
--rwxr-xr-x 1 root root   31K Mar  2  2017 echo
--rwxr-xr-x 1 root root   51K Apr 26  2014 ed
--rwxr-xr-x 1 root root    28 Apr 29  2016 egrep
--rwxr-xr-x 1 root root   27K Mar  2  2017 false
--rwxr-xr-x 1 root root   11K Sep 22  2016 fgconsole
--rwxr-xr-x 1 root root    28 Apr 29  2016 fgrep
--rwxr-xr-x 1 root root   49K Jan 27  2020 findmnt
--rwxr-xr-x 1 root root  1.2K Aug 13  2019 fsck.btrfs
--rwxr-xr-x 1 root root   36K Aug 20  2019 fuser
--rwsr-xr-x 1 root root   31K Jul 12  2016 fusermount
--rwxr-xr-x 1 root root   24K Feb  7  2016 getfacl
--rwxr-xr-x 1 root root  207K Apr 29  2016 grep
--rwxr-xr-x 2 root root  2.3K Oct 27  2014 gunzip
--rwxr-xr-x 1 root root  5.8K Oct 27  2014 gzexe
--rwxr-xr-x 1 root root   96K Oct 27  2014 gzip
--rwxr-xr-x 1 root root   15K Nov 24  2015 hostname
--rwxr-xr-x 1 root root  368K Apr 16  2019 ip
--rwxr-xr-x 1 root root  488K Sep  4 05:31 journalctl
--rwxr-xr-x 1 root root   11K Sep 22  2016 kbd_mode
--rwxr-xr-x 1 root root   23K Mar  5  2020 kill
--rwxr-xr-x 1 root root  148K Nov 12  2018 kmod
--rwxr-xr-x 1 root root  167K Apr  5  2017 less
--rwxr-xr-x 1 root root   11K Apr  5  2017 lessecho
-lrwxrwxrwx 1 root root     8 Apr  5  2017 lessfile -> lesspipe
--rwxr-xr-x 1 root root   20K Apr  5  2017 lesskey
--rwxr-xr-x 1 root root  7.6K Apr  5  2017 lesspipe
--rwxr-xr-x 1 root root   55K Mar  2  2017 ln
--rwxr-xr-x 1 root root  109K Sep 22  2016 loadkeys
--rwxr-xr-x 1 root root   47K Mar 26  2019 login
--rwxr-xr-x 1 root root  444K Sep  4 05:31 loginctl
--rwxr-xr-x 1 root root  103K Mar 21  2019 lowntfs-3g
--rwxr-xr-x 1 root root  124K Mar  2  2017 ls
--rwxr-xr-x 1 root root   76K Jan 27  2020 lsblk
-lrwxrwxrwx 1 root root     4 Nov 12  2018 lsmod -> kmod
--rwxr-xr-x 1 root root   76K Mar  2  2017 mkdir
--rwxr-xr-x 1 root root  260K Aug 13  2019 mkfs.btrfs
--rwxr-xr-x 1 root root   63K Mar  2  2017 mknod
--rwxr-xr-x 1 root root   39K Mar  2  2017 mktemp
--rwxr-xr-x 1 root root   39K Jan 27  2020 more
--rwsr-xr-x 1 root root   40K Jan 27  2020 mount
--rwxr-xr-x 1 root root   15K Jan 27  2020 mountpoint
-lrwxrwxrwx 1 root root    20 Aug 22 04:09 mt -> /etc/alternatives/mt
--rwxr-xr-x 1 root root   68K Nov  5  2019 mt-gnu
--rwxr-xr-x 1 root root  128K Mar  2  2017 mv
--rwxr-xr-x 1 root root  204K Feb 15  2017 nano
-lrwxrwxrwx 1 root root    20 Aug 22 04:09 nc -> /etc/alternatives/nc
--rwxr-xr-x 1 root root   31K Dec  3  2012 nc.openbsd
-lrwxrwxrwx 1 root root    24 Aug 22 04:09 netcat -> /etc/alternatives/netcat
--rwxr-xr-x 1 root root  117K Jun 30  2014 netstat
--rwxr-xr-x 1 root root  663K Sep  4 05:31 networkctl
-lrwxrwxrwx 1 root root     8 Nov 24  2015 nisdomainname -> hostname
--rwxr-xr-x 1 root root  139K Mar 21  2019 ntfs-3g
--rwxr-xr-x 1 root root   11K Mar 21  2019 ntfs-3g.probe
--rwxr-xr-x 1 root root   67K Mar 21  2019 ntfs-3g.secaudit
--rwxr-xr-x 1 root root   18K Mar 21  2019 ntfs-3g.usermap
--rwxr-xr-x 1 root root   27K Mar 21  2019 ntfscat
--rwxr-xr-x 1 root root   31K Mar 21  2019 ntfscluster
--rwxr-xr-x 1 root root   35K Mar 21  2019 ntfscmp
--rwxr-xr-x 1 root root   35K Mar 21  2019 ntfsfallocate
--rwxr-xr-x 1 root root   39K Mar 21  2019 ntfsfix
--rwxr-xr-x 1 root root   55K Mar 21  2019 ntfsinfo
--rwxr-xr-x 1 root root   32K Mar 21  2019 ntfsls
--rwxr-xr-x 1 root root   31K Mar 21  2019 ntfsmove
--rwxr-xr-x 1 root root   39K Mar 21  2019 ntfstruncate
--rwxr-xr-x 1 root root   47K Mar 21  2019 ntfswipe
-lrwxrwxrwx 1 root root     6 Sep 22  2016 open -> openvt
--rwxr-xr-x 1 root root   19K Sep 22  2016 openvt
-lrwxrwxrwx 1 root root    14 Feb  5  2016 pidof -> /sbin/killall5
--rwsr-xr-x 1 root root   44K May  7  2014 ping
--rwsr-xr-x 1 root root   44K May  7  2014 ping6
--rwxr-xr-x 1 root root   39K May  9  2018 plymouth
--rwxr-xr-x 1 root root   96K Mar  5  2020 ps
--rwxr-xr-x 1 root root   31K Mar  2  2017 pwd
-lrwxrwxrwx 1 root root     4 Jul 12  2019 rbash -> bash
--rwxr-xr-x 1 root root   39K Mar  2  2017 readlink
--rwxr-xr-x 1 root root    89 Apr 26  2014 red
--rwxr-xr-x 1 root root   59K Mar  2  2017 rm
--rwxr-xr-x 1 root root   39K Mar  2  2017 rmdir
-lrwxrwxrwx 1 root root     4 Feb 15  2017 rnano -> nano
--rwxr-xr-x 1 root root   19K Jan 26  2016 run-parts
--rwxr-xr-x 1 root root   72K Feb 11  2016 sed
--rwxr-xr-x 1 root root   36K Feb  7  2016 setfacl
--rwxr-xr-x 1 root root   40K Sep 22  2016 setfont
--rwxr-xr-x 1 root root   30K Apr 10  2019 setupcon
-lrwxrwxrwx 1 root root     4 Feb 17  2016 sh -> dash
-lrwxrwxrwx 1 root root     4 Feb 17  2016 sh.distrib -> dash
--rwxr-xr-x 1 root root   31K Mar  2  2017 sleep
--rwxr-xr-x 1 root root  114K Apr 16  2019 ss
-lrwxrwxrwx 1 root root     7 Mar  7  2019 static-sh -> busybox
--rwxr-xr-x 1 root root   71K Mar  2  2017 stty
--rwsr-xr-x 1 root root   40K Mar 26  2019 su
--rwxr-xr-x 1 root root   31K Mar  2  2017 sync
--rwxr-xr-x 1 root root  649K Sep  4 05:31 systemctl
-lrwxrwxrwx 1 root root    20 Sep  4 05:31 systemd -> /lib/systemd/systemd
--rwxr-xr-x 1 root root   51K Sep  4 05:31 systemd-ask-password
--rwxr-xr-x 1 root root   39K Sep  4 05:31 systemd-escape
--rwxr-xr-x 1 root root   63K Sep  4 05:31 systemd-hwdb
--rwxr-xr-x 1 root root  276K Sep  4 05:31 systemd-inhibit
--rwxr-xr-x 1 root root   47K Sep  4 05:31 systemd-machine-id-setup
--rwxr-xr-x 1 root root   35K Sep  4 05:31 systemd-notify
--rwxr-xr-x 1 root root  143K Sep  4 05:31 systemd-tmpfiles
--rwxr-xr-x 1 root root   67K Sep  4 05:31 systemd-tty-ask-password-agent
--rwxr-xr-x 1 root root   23K Jan 27  2020 tailf
--rwxr-xr-x 1 root root  375K Jan 11 12:30 tar
--rwxr-xr-x 1 root root   11K Jan 26  2016 tempfile
--rwxr-xr-x 1 root root   63K Mar  2  2017 touch
--rwxr-xr-x 1 root root   27K Mar  2  2017 true
--rwxr-xr-x 1 root root  439K Sep  4 05:31 udevadm
--rwxr-xr-x 1 root root   14K Jul 12  2016 ulockmgr_server
--rwsr-xr-x 1 root root   27K Jan 27  2020 umount
--rwxr-xr-x 1 root root   31K Mar  2  2017 uname
--rwxr-xr-x 2 root root  2.3K Oct 27  2014 uncompress
--rwxr-xr-x 1 root root  2.7K Sep 22  2016 unicode_start
--rwxr-xr-x 1 root root  124K Mar  2  2017 vdir
--rwxr-xr-x 1 root root   31K Jan 27  2020 wdctl
--rwxr-xr-x 1 root root   946 Jan 26  2016 which
--rwxr-xr-x 1 root root   27K Jan 18  2016 whiptail
-lrwxrwxrwx 1 root root     5 Jan 29 09:35 wslpath -> /init
-lrwxrwxrwx 1 root root     8 Nov 24  2015 ypdomainname -> hostname
--rwxr-xr-x 1 root root  1.9K Oct 27  2014 zcat
--rwxr-xr-x 1 root root  1.8K Oct 27  2014 zcmp
--rwxr-xr-x 1 root root  5.7K Oct 27  2014 zdiff
--rwxr-xr-x 1 root root   140 Oct 27  2014 zegrep
--rwxr-xr-x 1 root root   140 Oct 27  2014 zfgrep
--rwxr-xr-x 1 root root  2.1K Oct 27  2014 zforce
--rwxr-xr-x 1 root root  5.8K Oct 27  2014 zgrep
--rwxr-xr-x 1 root root  2.0K Oct 27  2014 zless
--rwxr-xr-x 1 root root  1.9K Oct 27  2014 zmore
--rwxr-xr-x 1 root root  5.0K Oct 27  2014 znew
+[truncated 180 lines]
 [Parent]: Child 1773 exited with status code 0. Onward!
 Selection #4: /proc [SUCCESS]
 Current reported directory: /proc
@@ -576,73 +241,76 @@ drwxr-xr-x 1 root root 4.0K Aug 22 04:14 src
 Slug Output:
 
 awhitney@DESKTOP-AJW ~/p/project1> ./slug 1
-Read seed value: 55555
-Delay time is 3 seconds. Coin flip: 0
-I'll get the job done. Eventually...
-Break time is over! I am running the 'last -d --fulltimes' command.
+[Slug PID: 1484]: Read seed value: 55555
+[Slug PID: 1484]: Read seed value (converted to integer): 55555
+[Slug PID: 1484]: Delay time is 3 seconds. Coin flip: 0
+[Slug PID: 1484]: I'll get the job done. Eventually...
+[Slug PID: 1484]: Break time is over! I am running the 'last -d --fulltimes' command.
 
 wtmp begins Fri Jan 29 09:35:36 2021
 
 Slugrace Output:
 
-[Parent]: I forked off child 1845
-[Child PID: 1845]: Executing './slug 1' command...
-[Parent]: I forked off child 1846
-[Child PID: 1846]: Executing './slug 2' command...
-Read seed value: 55555
-Delay time is 3 seconds. Coin flip: 0
-I'll get the job done. Eventually...
-[Parent]: I forked off child 1847
-[Child PID: 1847]: Executing './slug 3' command...
-Read seed value: 56789
-Delay time is 2 seconds. Coin flip: 1
-I'll get the job done. Eventually...
-[Parent]: I forked off child 1848
-[Child PID: 1848]: Executing './slug 4' command...
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-Read seed value: 12345
-Delay time is 4 seconds. Coin flip: 1
-I'll get the job done. Eventually...
-Read seed value: 456
-Delay time is 4 seconds. Coin flip: 1
-I'll get the job done. Eventually...
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-Break time is over! I am running the 'id -u' command.
-The race is still going. The following children are still racing: 1845 1846 1847 1848
+[Parent]: I forked off child 1451
+[Child PID: 1451]: Executing './slug 1' command...
+[Parent]: I forked off child 1452
+[Child PID: 1452]: Executing './slug 2' command...
+[Slug PID: 1451]: Read seed value: 55555
+[Slug PID: 1451]: Read seed value (converted to integer): 55555
+[Slug PID: 1451]: Delay time is 3 seconds. Coin flip: 0
+[Slug PID: 1451]: I'll get the job done. Eventually...
+[Parent]: I forked off child 1453
+[Child PID: 1453]: Executing './slug 3' command...
+[Slug PID: 1452]: Read seed value: 56789
+[Slug PID: 1452]: Read seed value (converted to integer): 56789
+[Slug PID: 1452]: Delay time is 2 seconds. Coin flip: 1
+[Slug PID: 1452]: I'll get the job done. Eventually...
+[Parent]: I forked off child 1454
+[Child PID: 1454]: Executing './slug 4' command...
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+[Slug PID: 1453]: Read seed value: 12345
+[Slug PID: 1453]: Read seed value (converted to integer): 12345
+[Slug PID: 1453]: Delay time is 4 seconds. Coin flip: 1
+[Slug PID: 1453]: I'll get the job done. Eventually...
+[Slug PID: 1454]: Read seed value: 456
+[Slug PID: 1454]: Read seed value (converted to integer): 456
+[Slug PID: 1454]: Delay time is 4 seconds. Coin flip: 1
+[Slug PID: 1454]: I'll get the job done. Eventually...
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+[Slug PID: 1452]: Break time is over! I am running the 'id -u' command.
+The race is still going. The following children are still racing: 1451 1452 1453 1454
 1000
-The race is still going. The following children are still racing: 1845 1846 1847 1848
-Child 1846 has crossed the finish line! It took 2.000000 seconds
-The race is still going. The following children are still racing: 1845 1847 1848
-The race is still going. The following children are still racing: 1845 1847 1848
-Break time is over! I am running the 'last -d --fulltimes' command.
+The race is still going. The following children are still racing: 1451 1452 1453 1454
+Child 1452 has crossed the finish line! It took 2.000000 seconds
+The race is still going. The following children are still racing: 1451 1453 1454
+The race is still going. The following children are still racing: 1451 1453 1454
+[Slug PID: 1451]: Break time is over! I am running the 'last -d --fulltimes' command.
 
 wtmp begins Fri Jan 29 09:35:36 2021
-The race is still going. The following children are still racing: 1845 1847 1848
-Child 1845 has crossed the finish line! It took 3.000000 seconds
-The race is still going. The following children are still racing: 1847 1848
-The race is still going. The following children are still racing: 1847 1848
-The race is still going. The following children are still racing: 1847 1848
-Break time is over! I am running the 'id -u' command.
-Break time is over! I am running the 'id -u' command.
-The race is still going. The following children are still racing: 1847 1848
+The race is still going. The following children are still racing: 1451 1453 1454
+Child 1451 has crossed the finish line! It took 3.000000 seconds
+The race is still going. The following children are still racing: 1453 1454
+The race is still going. The following children are still racing: 1453 1454
+The race is still going. The following children are still racing: 1453 1454
+[Slug PID: 1453]: Break time is over! I am running the 'id -u' command.
+[Slug PID: 1454]: Break time is over! I am running the 'id -u' command.
 1000
+The race is still going. The following children are still racing: 1453 1454
+Child 1453 has crossed the finish line! It took 4.000000 seconds
 1000
-The race is still going. The following children are still racing: 1847 1848
-Child 1847 has crossed the finish line! It took 4.000000 seconds
-Child 1848 has crossed the finish line! It took 4.000000 seconds
+The race is still going. The following children are still racing: 1454
+Child 1454 has crossed the finish line! It took 4.000000 seconds
 The race is over! It took 4.000000 seconds
 
-Test Procedures:		how the program was tested
-Test Data:				test cases
+Test Procedures:		Program Output was compared to example output provided by assignment pdf.
+                                Other seeds were tested to ensure the program executed differently with different seeds
+Test Data:				seed.txt modified with other ints.
+                                        seed_x_x.txt modified with other ints.
 
-Performance Evaluation:		how well the program performs
-	Time/Space
-	User Interface
-
-References:			books, papers, people, web, ...
+References:			CS3013 Lectures, Linux Man Pages (https://linux.die.net/man/)

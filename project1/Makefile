@@ -1,4 +1,4 @@
-all: prolific generation explorer slugs
+all: prolific generation explorer slug slugrace
 
 prolific: prolific.c
 	gcc prolific.c -o prolific
@@ -9,9 +9,11 @@ generation: generation.c
 explorer: explorer.c
 	gcc explorer.c -o explorer
 
-slugs: slug.c slugrace.c
+slug: slug.c
 	gcc slug.c -o slug
+
+slugrace: slugrace.c slug
 	gcc slugrace.c -o slugrace
 
 clean:
-	rm prolific generation slug slugrace
+	rm prolific generation explorer slug slugrace
