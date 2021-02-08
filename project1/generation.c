@@ -36,9 +36,9 @@ void createDecendants(int n) {
     int childStatus;
     int forkResult;
 
-    if(n == 0) { /* no more decendants to be made, exit recursion */
+    if(n == 0) {
         exit(n);
-    } else { /* keep creating decendants until there are no more to be made */
+    } else {
         forkResult = fork();
         if(forkResult == 0) {
             printf("\t[Child, PID: %d]: I was called with decendant count=%d. I'll have %d decendant(s).\n", getpid(), n, n-1);
