@@ -37,8 +37,7 @@ int main(int argc, char** argv) {
      */
     for(int i = 0; i < 5; i++) {
         char cwd[256];
-        int randDir = rand() % 6;
-        if(chdir(randDirs[randDir]) == 0) {
+        if(chdir(randDirs[i]) == 0) {
             getcwd(cwd, sizeof(cwd));
             printf("Selection #%d: %s [SUCCESS]\n", i+1, cwd);
             printf("Current reported directory: %s\n", cwd);
