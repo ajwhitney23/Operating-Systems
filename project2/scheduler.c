@@ -4,13 +4,13 @@
 
 struct job
 {
-    int id;
-    int length;
-    int response;
-    int turnaround;
-    int wait;
-    int last_ran;
-    struct job *next;
+    int id;             /* ID number for each job */
+    int length;         /* length of time units it will take to do job */
+    int response;       /* response time of job */
+    int turnaround;     /* turnaround time of job */
+    int wait;           /* wait time of job */
+    int last_ran;       /* total execution time last time job was run */
+    struct job *next;   /* pointer to next job */
 };
 
 struct job* read_file(char* file);
@@ -18,7 +18,9 @@ void round_robin_scheduler(struct job* start, int time_slice);
 void fifo_scheduler(struct job* start);
 void sjf_scheduler(struct job* start);
 
-
+/*
+ * function returns the minimum value
+ */
 int min(int x, int y) {
     if(x > y) {
         return y;
@@ -43,38 +45,48 @@ int main(int argc, char **argv){
     }
 
     char* file = argv[2];
-    int time_slice = atoi(argv[3]);
+    // int time_slice = atoi(argv[3]);
     start = read_file(file);
 
     char* mode = argv[1];
     if(!strcmp(mode, "FIFO")) {
-        printf("FIFO");
+        fifo_scheduler(start);
     } else if(!strcmp(mode, "SJF")) {
-        printf("SJF");
+        sjf_scheduler(start);
     } else if(!strcmp(mode, "RR")) {
+        int time_slice = atoi(argv[3]);
         round_robin_scheduler(start, time_slice);
-        printf("RR");
     }
 
     return 0;
 
 }
 
+void fifo_scheduler(struct job* start) {
+
+}
+
+void sjf_scheduler(struct job* start) {
+
+}
+
 void round_robin_scheduler(struct job* start, int time_slice) {
     int current_job;
-    int start_time = 0;
+    // int start_time = 0;
     int total_time = 0;
-    int end_time;
+    // int end_time;
 
     printf("Execution trace with RR:\n");
 
+    /* while loop that runs while there are still jobs to do */
     int jobs_ran = 1;
     while(jobs_ran > 0) {
         jobs_ran = 0;
         struct job *temp = start;
+        /* while loop that runs though the linked list of jobs once */
         while (temp != NULL)
         {
-            if(temp->length == 0) {
+            if(temp->length == 0) { /* job already ran and has no more length left no do nothing */
                 temp = temp->next;
                 continue;
             }
@@ -97,8 +109,8 @@ void round_robin_scheduler(struct job* start, int time_slice) {
             jobs_ran++;
         }
     }
-
     printf("End of execution with RR.\n");
+
     printf("Begin analyzing RR:\n");
     struct job *temp = start;
     int avg_response = 0;
@@ -114,10 +126,7 @@ void round_robin_scheduler(struct job* start, int time_slice) {
         temp = temp->next;
     }
     printf("Average -- Response : %f Turnaround %f Wait %f\n", (double)avg_response/total_jobs, (double)avg_turnaround/total_jobs, (double)avg_wait/total_jobs);
-
     printf("End analyzing RR.\n");
-
-
 }
 
 /*
