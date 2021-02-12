@@ -86,7 +86,7 @@ void fifo_scheduler(struct job *start)
     {
         temp->wait += (total_time - temp->last_ran);
         int run_time = temp->length;
-        printf("Job %d ran for %d\n", temp->id, run_time);
+        printf("Job %d ran for: %d\n", temp->id, run_time);
         if (temp->response < 0)
         {
             temp->response = total_time;
@@ -147,7 +147,7 @@ void round_robin_scheduler(struct job *start, int time_slice)
             }
             temp->wait += (total_time - temp->last_ran);
             int run_time = min(temp->length, time_slice);
-            printf("Job %d ran for %d\n", temp->id, run_time);
+            printf("Job %d ran for: %d\n", temp->id, run_time);
             temp->length -= run_time;
             if (temp->response < 0)
             {
