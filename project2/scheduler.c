@@ -46,11 +46,11 @@ int main(int argc, char **argv)
 
     if (argc != 4)
     {
+        printf("Incorrect number of parameters!\n");
         return -1;
     }
 
     char *file = argv[2];
-    // int time_slice = atoi(argv[3]);
     start = read_file(file);
 
     char *mode = argv[1];
