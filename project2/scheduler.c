@@ -107,14 +107,14 @@ void fifo_scheduler(struct job *start)
     double total_jobs = 0.0;
     while (temp != NULL)
     {
-        printf("Job %d -- Response time : %d Turnaround : %d Wait : %d\n", temp->id, temp->response, temp->turnaround, temp->wait);
+        printf("Job %d -- Response time: %d  Turnaround: %d  Wait: %d\n", temp->id, temp->response, temp->turnaround, temp->wait);
         avg_response += temp->response;
         avg_turnaround += temp->turnaround;
         avg_wait += temp->wait;
         total_jobs++;
         temp = temp->next;
     }
-    printf("Average -- Response : %f Turnaround %f Wait %f\n", (double)avg_response / total_jobs, (double)avg_turnaround / total_jobs, (double)avg_wait / total_jobs);
+    printf("Average -- Response: %.2f  Turnaround %.2f  Wait %.2f\n", (double)avg_response / total_jobs, (double)avg_turnaround / total_jobs, (double)avg_wait / total_jobs);
     printf("End analyzing FIFO.\n");
 }
 
@@ -174,14 +174,14 @@ void round_robin_scheduler(struct job *start, int time_slice)
     double total_jobs = 0.0;
     while (temp != NULL)
     {
-        printf("Job %d -- Response time : %d Turnaround : %d Wait : %d\n", temp->id, temp->response, temp->turnaround, temp->wait);
+        printf("Job %d -- Response time: %d  Turnaround: %d  Wait: %d\n", temp->id, temp->response, temp->turnaround, temp->wait);
         avg_response += temp->response;
         avg_turnaround += temp->turnaround;
         avg_wait += temp->wait;
         total_jobs++;
         temp = temp->next;
     }
-    printf("Average -- Response : %f Turnaround %f Wait %f\n", (double)avg_response / total_jobs, (double)avg_turnaround / total_jobs, (double)avg_wait / total_jobs);
+    printf("Average -- Response: %.2f  Turnaround %.2f  Wait %.2f\n", (double)avg_response / total_jobs, (double)avg_turnaround / total_jobs, (double)avg_wait / total_jobs);
     printf("End analyzing RR.\n");
 }
 
