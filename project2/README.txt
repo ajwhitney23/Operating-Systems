@@ -1,19 +1,34 @@
-Last updated: 2021-02-11
+Author:				Andrew Whitney, Nathan Bargman
+Date:				02/19/2021
+Version:			V1
+Project ID:			Project 2
+CS Class:			CS3013
+Programming Language:		C
+OS/Hardware dependencies:	Ubuntu 16.04
 
+Problem Description:		Exploring how the os manages tasks and processes.	
 
-In this directory, you should write the program `scheduler.c` and compile it
-into the binary `scheduler` (e.g., `gcc -o scheduler scheduler.c -Wall
--Werror`). You should do it inside the Ubuntu machine you have setup, as
-grading will be done so inside the Ubuntu.
+Program Assumptions 
+      and Restrictions:		
 
-After doing so, you can run the tests from this directory by running the
-`./run_tests.sh` script. If all goes well, you will see standard output that
-indicates that all tests are passed.
+Implementation Details:
+	Data			ints, timespec, char*, char**, job struct (linked list of simulated jobs)
+	Variables		N/A 
+	Algorithm		for loops and while loops
 
-Passing all tests are not sufficient to obtain all points for this assignment.
-As an example, any assignment in which hardcodes the expected output to pass
-the test case will lead to point deductions.
+How to build the program:   make all to build scheduler binary
+                            make scheduler to build scheduler
+                            make clean to remove scheduler binary
+                            
 
+Program Source:			scheduler.c
 
+Additional Files:		test/*, run_tests.sh, TODO
 
+Results:
 
+Test Procedures:		run_tests.sh 
+
+Test Data:			.in files with  a list of jobs with simulated length.  Each job broken up with newline
+
+References:			CS3013 Lectures, Linux Man Pages (https://linux.die.net/man/)
