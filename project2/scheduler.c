@@ -17,6 +17,8 @@ struct job *read_file(char *file);
 void round_robin_scheduler(struct job *start, int time_slice);
 void fifo_scheduler(struct job *start);
 void sjf_scheduler(struct job *start);
+struct job* swap(int pos, struct job *start);
+void first_to_last(struct job* start, char* job_name);
 
 /*
  * function returns the minimum value
@@ -38,6 +40,7 @@ int main(int argc, char **argv)
 
     struct job *start;
 
+    //print all jobs in linked list
     // struct job *temp = start;
     // while(temp != NULL) {
     //     printf("ID: %d, length: %d\n", temp->id, temp->length);
@@ -76,9 +79,67 @@ int main(int argc, char **argv)
  */
 void fifo_scheduler(struct job *start)
 {
+    first_to_last(start, "FIFO");
+}
+
+/*
+ * sort the jobs and then do the shortest job first, all to way to longest
+ */
+void sjf_scheduler(struct job *list_start)
+{
+    struct job* start = list_start;
+    int changed = 1;
+    while(changed > 0){
+        changed = 0;
+        int jobs_ran = 0;
+        struct job *temp = start;
+        while (temp != NULL && temp->next != NULL) {
+           if(temp->length > temp->next->length || (temp->length == temp->next->length && temp->id > temp->next->id)){
+               start = swap(jobs_ran, start);
+               changed++;
+           }
+
+           temp = temp->next;
+           jobs_ran ++;
+        }
+    }
+
+    first_to_last(start, "SJF");
+}
+
+struct job* swap(int pos, struct job *start){
+    struct job *crnt = start;
+    struct job *past = NULL;
+    struct job *futr = crnt->next;
+    for(int i = 0; i < pos; i++){
+        past = crnt;
+        crnt = futr;
+        if(futr->next != NULL){
+            futr = futr->next;
+        }else{
+            futr = NULL;
+        }
+    }
+
+    if(past != NULL){
+        if(futr != NULL) {
+            past->next = futr;
+            crnt->next = futr->next;
+            futr->next = crnt;
+        }
+        return start;
+    }
+
+    crnt->next = futr->next;
+    futr->next = crnt;
+    return futr;
+}
+
+
+void first_to_last(struct job* start, char* job_name){
     int total_time = 0;
 
-    printf("Execution trace with FIFO:\n");
+    printf("Execution trace with %s:\n", job_name);
 
     struct job *temp = start;
     /* while loop that runs though the linked list of jobs once */
@@ -97,9 +158,9 @@ void fifo_scheduler(struct job *start)
 
         temp = temp->next;
     }
-    printf("End of execution with FIFO.\n");
+    printf("End of execution with %s.\n", job_name);
 
-    printf("Begin analyzing FIFO:\n");
+    printf("Begin analyzing %s:\n", job_name);
     temp = start;
     int avg_response = 0;
     int avg_turnaround = 0;
@@ -115,14 +176,7 @@ void fifo_scheduler(struct job *start)
         temp = temp->next;
     }
     printf("Average -- Response: %.2f  Turnaround %.2f  Wait %.2f\n", (double)avg_response / total_jobs, (double)avg_turnaround / total_jobs, (double)avg_wait / total_jobs);
-    printf("End analyzing FIFO.\n");
-}
-
-/*
- * sort the jobs and then do the shortest job first, all to way to longest
- */
-void sjf_scheduler(struct job *start)
-{
+    printf("End analyzing %s.\n", job_name);
 }
 
 void round_robin_scheduler(struct job *start, int time_slice)
