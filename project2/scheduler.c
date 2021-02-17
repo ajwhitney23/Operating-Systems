@@ -176,6 +176,9 @@ void first_to_last(struct job* start, char* job_name){
     printf("End analyzing %s.\n", job_name);
 }
 
+/*
+ * simulates jobs with a round robin (RR) policy
+ */ 
 void round_robin_scheduler(struct job *start, int time_slice)
 {
     int total_time = 0;
