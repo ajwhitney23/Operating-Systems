@@ -37,15 +37,7 @@ int min(int x, int y)
 
 int main(int argc, char **argv)
 {
-
     struct job *start;
-
-    //print all jobs in linked list
-    // struct job *temp = start;
-    // while(temp != NULL) {
-    //     printf("ID: %d, length: %d\n", temp->id, temp->length);
-    //     temp = temp->next;
-    // }
 
     if (argc != 4)
     {
@@ -107,6 +99,9 @@ void sjf_scheduler(struct job *list_start)
     first_to_last(start, "SJF");
 }
 
+/*
+ * rearranges the linked list at a specific location
+ */
 struct job* swap(int pos, struct job *start){
     struct job *crnt = start;
     struct job *past = NULL;
@@ -135,7 +130,9 @@ struct job* swap(int pos, struct job *start){
     return futr;
 }
 
-
+/*
+ * goes through the jobs linked list and simulates running the jobs in the given order
+ */ 
 void first_to_last(struct job* start, char* job_name){
     int total_time = 0;
 
