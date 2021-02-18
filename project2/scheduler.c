@@ -13,7 +13,7 @@ struct job
     struct job *next; /* pointer to next job */
 };
 
-struct job *read_file(char *file);
+struct job *get_jobs(char *file);
 void round_robin_scheduler(struct job *start, int time_slice);
 void fifo_scheduler(struct job *start);
 void sjf_scheduler(struct job *start);
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     }
 
     char *file = argv[2];
-    start = read_file(file);
+    start = get_jobs(file);
 
     char *mode = argv[1];
     if (!strcmp(mode, "FIFO"))
@@ -242,7 +242,7 @@ void round_robin_scheduler(struct job *start, int time_slice)
 /*
  * function reads the given file
  */
-struct job *read_file(char *f)
+struct job *get_jobs(char *f)
 {
     FILE *fp;
     char *buff;
