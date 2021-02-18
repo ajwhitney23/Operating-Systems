@@ -21,7 +21,7 @@ struct job* swap(int pos, struct job *start);
 void first_to_last(struct job* start, char* job_name);
 
 /*
- * function returns the minimum value
+ * function returns the minimum value between x and y
  */
 int min(int x, int y)
 {
@@ -39,12 +39,14 @@ int main(int argc, char **argv)
 {
     struct job *start;
 
+    //check for correct parameter count
     if (argc != 4)
     {
         printf("Incorrect number of parameters!\n");
         return -1;
     }
 
+    //parse input
     char *file = argv[2];
     start = get_jobs(file);
 
@@ -81,11 +83,14 @@ void sjf_scheduler(struct job *list_start)
 {
     struct job* start = list_start;
     int changed = 1;
+
+    //run until are jobs are sorted (bubble sort)
     while(changed > 0){
         changed = 0;
         int jobs_ran = 0;
         struct job *temp = start;
         while (temp != NULL && temp->next != NULL) {
+            //condition to swap adjacent elements
            if(temp->length > temp->next->length || (temp->length == temp->next->length && temp->id > temp->next->id)){
                start = swap(jobs_ran, start);
                changed++;
@@ -106,6 +111,8 @@ struct job* swap(int pos, struct job *start){
     struct job *crnt = start;
     struct job *past = NULL;
     struct job *futr = crnt->next;
+
+    //find index to switch
     for(int i = 0; i < pos; i++){
         past = crnt;
         crnt = futr;
@@ -116,17 +123,22 @@ struct job* swap(int pos, struct job *start){
         }
     }
 
+    //preform switch
     if(past != NULL){
         if(futr != NULL) {
             past->next = futr;
             crnt->next = futr->next;
             futr->next = crnt;
         }
+
+        //start was not changed
         return start;
     }
 
     crnt->next = futr->next;
     futr->next = crnt;
+
+    //start was changed, assign new start
     return futr;
 }
 
@@ -145,7 +157,7 @@ void first_to_last(struct job* start, char* job_name){
         temp->wait += (total_time - temp->last_ran);
         int run_time = temp->length;
         printf("Job %d ran for: %d\n", temp->id, run_time);
-        if (temp->response < 0)
+        if (temp->response < 0) //response is initialized to -1
         {
             temp->response = total_time;
         }
@@ -163,6 +175,8 @@ void first_to_last(struct job* start, char* job_name){
     int avg_turnaround = 0;
     int avg_wait = 0;
     double total_jobs = 0.0;
+
+    //loop through each element of the linked list
     while (temp != NULL)
     {
         printf("Job %d -- Response time: %d  Turnaround: %d  Wait: %d\n", temp->id, temp->response, temp->turnaround, temp->wait);
@@ -194,8 +208,9 @@ void round_robin_scheduler(struct job *start, int time_slice)
         /* while loop that runs though the linked list of jobs once */
         while (temp != NULL)
         {
+            /* job is already done */
             if (temp->length == 0)
-            { /* job already ran and has no more length left no do nothing */
+            {
                 temp = temp->next;
                 continue;
             }
@@ -203,12 +218,12 @@ void round_robin_scheduler(struct job *start, int time_slice)
             int run_time = min(temp->length, time_slice);
             printf("Job %d ran for: %d\n", temp->id, run_time);
             temp->length -= run_time;
-            if (temp->response < 0)
+            if (temp->response < 0) //response is initialized to -1
             {
                 temp->response = total_time;
             }
             total_time += run_time;
-            if (temp->length == 0)
+            if (temp->length == 0) //job is now done
             {
                 temp->turnaround = total_time;
             }
@@ -226,6 +241,8 @@ void round_robin_scheduler(struct job *start, int time_slice)
     int avg_turnaround = 0;
     int avg_wait = 0;
     double total_jobs = 0.0;
+
+    //loop through each element of the linked list
     while (temp != NULL)
     {
         printf("Job %d -- Response time: %d  Turnaround: %d  Wait: %d\n", temp->id, temp->response, temp->turnaround, temp->wait);
@@ -254,6 +271,8 @@ struct job *get_jobs(char *f)
     line = 0;
     struct job *last;
     struct job *first;
+
+    //for each line initialize a new job and add it to the linked list
     while ((read = getline(&buff, &len, fp)) != -1)
     {
         struct job *temp = malloc(sizeof(struct job));
