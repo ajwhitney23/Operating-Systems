@@ -12,7 +12,7 @@ void* _arena_start;
 size_t total_size;
 struct __node_t *header_list;
 
-statusno = ERR_UNINITIALIZED;
+int statusno = ERR_UNINITIALIZED;
 
 
 extern int init(size_t size) {
