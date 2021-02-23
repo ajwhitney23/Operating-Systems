@@ -35,3 +35,10 @@ Test Procedures:	make clean
 Test Data:			TODO
 
 References:			CS3013 Lectures
+
+STILL TODO:
+
+update prints to match format spec by project Description
+get rid of compile errors
+.h file issues w/ size_t
+find out what binary should be called
