@@ -1,5 +1,5 @@
 all:
-	gcc -o goatmalloc goatmalloc.c -lm goatmalloc.h test_goatmalloc.c
+	gcc -o goatmalloc goatmalloc.h goatmalloc.c -lm test_goatmalloc.c
 
 clean:
 	rm goatmalloc
