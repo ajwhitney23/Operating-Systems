@@ -20,11 +20,22 @@ extern int init(size_t size) {
         return ERR_BAD_ARGUMENTS;
     }
 
+    printf("Initializing arena: \n");
+    printf("...requested size %d bytes\n", (int) size);
+    printf("...pagesize is %d bytes\n", getpagesize());
+    printf("...adjusting size with page boundaries\n");
+
     int num_pages = (int) ceil((double)size/(double)getpagesize());
     total_size = num_pages * getpagesize();
 
+    printf("...adjusted size is %d bytes\n", (int) total_size);
+    printf("...mapping arena with mmap()\n");
+
     int fd=open("/dev/zero",O_RDWR);
     _arena_start = mmap(NULL, total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
+
+    printf("...arena starts at %p\n", _arena_start);
+    printf("...arena ends at %p\n", _arena_start + total_size);
 
     struct __node_t *header = _arena_start;
     header->size = total_size - HEADER_SIZE;
@@ -33,6 +44,9 @@ extern int init(size_t size) {
     header->fwd = NULL;
     header_list = header;
 
+    printf("...initalizing header for inital free chunk\n");
+    printf("...header size is %d\n", HEADER_SIZE);
+
     // printf("Requested size: %zu\n", size);
     // printf("page size: %d\n", getpagesize());
     // printf("adjusted size %zu\n", total_size);
@@ -40,8 +54,6 @@ extern int init(size_t size) {
     // printf("arena start + total size: %p\n", _arena_start+total_size);
     // printf("header: %p\n", header_list);
     // printf("header_list size: %zu\n", header_list->size);
-
-
     statusno = 0;
 
     return total_size;
@@ -51,6 +63,9 @@ extern int destroy() {
     if(_arena_start == NULL) {
         return ERR_UNINITIALIZED;
     }
+
+    printf("Destorying Arena: \n");
+    printf("...unmapping arena with munmap()\n");
 
     munmap(_arena_start, total_size);
     _arena_start = NULL;
