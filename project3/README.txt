@@ -20,13 +20,25 @@ How to build the program:   make all to build goatmalloc binary
                             make clean to remove goatmalloc binary
                             
 
-Program Source:			goatmalloc.c, goatmalloc.h, test_goatmalloc.c
+Program Source:		goatmalloc.c, goatmalloc.h, test_goatmalloc.c
 
 Additional Files:		output.txt, REAME.txt, ajwhitney.docx, nmbargman.docx, Makefile, output_ref.txt
 
-Results:
+Results:                reference output.txt for full output from program running tests.
 
-TODO
+      Sample:
+            Initializing arena: 
+            ...requested size 1 bytes
+            ...pagesize is 4096 bytes
+            ...adjusting size with page boundaries
+            ...adjusted size is 4096 bytes
+            ...mapping arena with mmap()
+            ...arena starts at 0x7fbe9aee5000
+            ...arena ends at 0x7fbe9aee6000
+            ...initalizing header for inital free chunk
+            ...header size is 32
+            Destorying Arena: 
+            ...unmapping arena with munmap()
 
 Test Procedures:	make clean
                     make
@@ -37,8 +49,4 @@ Test Data:			TODO
 References:			CS3013 Lectures
 
 STILL TODO:
-
-update prints to match format spec by project Description
-get rid of compile errors
-.h file issues w/ size_t
 find out what binary should be called
