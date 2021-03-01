@@ -14,7 +14,9 @@ struct __node_t *header_list;
 
 int statusno = ERR_UNINITIALIZED;
 
-
+/*
+ * initalizes the arena based on size passed in, rounds to nearest page size.
+ */
 extern int init(size_t size) {
     if ((int)size <= 0) {
         return ERR_BAD_ARGUMENTS;
@@ -47,18 +49,14 @@ extern int init(size_t size) {
     printf("...initalizing header for inital free chunk\n");
     printf("...header size is %d\n", HEADER_SIZE);
 
-    // printf("Requested size: %zu\n", size);
-    // printf("page size: %d\n", getpagesize());
-    // printf("adjusted size %zu\n", total_size);
-    // printf("arena start %p\n", _arena_start);
-    // printf("arena start + total size: %p\n", _arena_start+total_size);
-    // printf("header: %p\n", header_list);
-    // printf("header_list size: %zu\n", header_list->size);
     statusno = 0;
 
     return total_size;
 }
 
+/*
+ * destorys the allocated memeory
+ */
 extern int destroy() {
     if(_arena_start == NULL) {
         return ERR_UNINITIALIZED;
@@ -75,6 +73,10 @@ extern int destroy() {
     return 0;   
 }
 
+/*
+ *  allocates memory of passed in parameter inside of the arena.
+ *  returns the pointer to the allocated memeory, or null if arena isn't inialized or out of memory
+ */
 extern void* walloc(size_t size) {
     struct __node_t *current = header_list;
 
@@ -110,6 +112,10 @@ extern void* walloc(size_t size) {
     return NULL;
 }
 
+/*
+ *  free's the memory at the location from the pointer
+ *  sets error messages if the memory isn't initalized or if the call failed
+ */
 extern void wfree(void *ptr) {
     struct __node_t *current = header_list;
 
