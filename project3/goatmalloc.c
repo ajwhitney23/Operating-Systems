@@ -16,7 +16,7 @@ int statusno = ERR_UNINITIALIZED;
 
 
 extern int init(size_t size) {
-    if ((int)size < 0) {
+    if ((int)size <= 0) {
         return ERR_BAD_ARGUMENTS;
     }
 
@@ -86,7 +86,7 @@ extern void* walloc(size_t size) {
         if(current->is_free == 1) {
             size_t free_size = current->size;
             int is_equal_gt = (int)free_size >= (int)size;
-            int is_gt = (int)free_size > (int)size + 1 + HEADER_SIZE;
+            int is_gt = (int)free_size > (int)size + HEADER_SIZE;
             if(is_equal_gt) {
                 current->size = !is_gt * (int)free_size + is_gt * size;
                 current->is_free = 0;
