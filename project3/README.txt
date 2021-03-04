@@ -1,20 +1,20 @@
 Author:				Andrew Whitney, Nathan Bargman
-Date:				02/23/21
-Version:			V1
-Project ID:			Project 3
-CS Class:			CS3013
+Date:				      02/23/21
+Version:			      V1
+Project ID:			      Project 3
+CS Class:			      CS3013
 Programming Language:		C
 OS/Hardware dependencies:	Ubuntu 16.04
 
 Problem Description:		Exploring memory virtualization through a simulation.	
 
 Program Assumptions 
-      and Restrictions:		TODO
+      and Restrictions:		Run on Ubuntu 16.04, gcc utilizes -lm for goatmalloc.c to for math.h include
 
 Implementation Details:
 	Data			int, char*, size_t, struct __node_t
-	Variables		N/A 
-	Algorithm		for loops and while loops
+	Variables		_arena_start, statusno, header_list 
+	Algorithm		while loops (for linked list)
 
 How to build the program:   make all to build goatmalloc binary
                             make clean to remove goatmalloc binary
@@ -22,7 +22,7 @@ How to build the program:   make all to build goatmalloc binary
 
 Program Source:		goatmalloc.c, goatmalloc.h, test_goatmalloc.c
 
-Additional Files:		output.txt, REAME.txt, ajwhitney.docx, nmbargman.docx, Makefile, output_ref.txt
+Additional Files:		output.txt, README.txt, ajwhitney.docx, nmbargman.docx, Makefile, output_ref.txt
 
 Results:                reference output.txt for full output from program running tests.
 
@@ -40,13 +40,20 @@ Results:                reference output.txt for full output from program runnin
             Destorying Arena: 
             ...unmapping arena with munmap()
 
-Test Procedures:	make clean
-                    make
-                    ./goatmalloc
+Test Procedures:	
+                  output to terminal:
 
-Test Data:			TODO
+                  make clean
+                  make
+                  ./goatmalloc
 
-References:			CS3013 Lectures
+                  output to specified file [filename]
 
-STILL TODO:
-find out what binary should be called
+                  make clean
+                  make
+                  ./goatmalloc > [filename]
+
+
+Test Data:		passes all tests
+
+References:		CS3013 Lectures
