@@ -6,7 +6,7 @@
 int main(int argc, char** argv) {
 
     run_summer();
-    // run_shipping();
+    run_shipping();
 
     return 0;
 }

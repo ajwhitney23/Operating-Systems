@@ -9,30 +9,36 @@
 sem
 */
 
-sem_t mutex;
-pthread_t tid[50];
+#define NUM_THREADS 5
+
+sem_t semaphore;
+pthread_t tid[NUM_THREADS];
 
 void* testp(void* arg) {
-    sem_wait(&mutex);
-    int count = *((int *) arg);
+    sem_wait(&semaphore);
+    int count = *(int *) arg;
 
     printf("job [%d] has started\n", count);
     sleep(1);
     printf("job [%d] has finsihed\n", count);
+    sleep(1);
 
-    sem_post(&mutex);
+    sem_post(&semaphore);
+    free(arg);
 }
 
 int run_shipping() {
+    printf("\nStart of problem number 2\n\n");
     int i = 0;
     int error;
 
-    sem_init(&mutex, 0, 9);
+    sem_init(&semaphore, 0, 1);
 
 
-    while (i < 10) {
-        int val = i;
-        error = pthread_create(&(tid[i]), NULL, &testp, (void *)&val);
+    while (i < NUM_THREADS) {
+        int *val = malloc(sizeof(int));
+        *val = i;
+        error = pthread_create(&(tid[i]), NULL, &testp, val);
 
         if(error != 0) {
             printf("error in thread creation\n");
@@ -40,8 +46,9 @@ int run_shipping() {
         i++;
     }
 
-    for(int i = 0; i < 50; i++) {
+    for(int i = 0; i < NUM_THREADS; i++) {
         pthread_join(tid[i], NULL);
     }
+    sem_destroy(&semaphore);
     return 0;
 }

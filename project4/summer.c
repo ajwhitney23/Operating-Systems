@@ -27,9 +27,10 @@ text file, problem1 explanation.txt, that will be submitted along with the sourc
 /*
 cond
 */
-int num_threads = 15;
+#define NUM_THREADS 15
+
+pthread_t tid[NUM_THREADS];
 pthread_t parent;
-pthread_t tid[15];
 pthread_mutex_t lock;
 pthread_cond_t cond;
 int isFilled = 0;
@@ -37,7 +38,7 @@ int id[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 
 void *parent_test(void *arg)
 {
-    for (int i = 0; i < num_threads; i++)
+    for (int i = 0; i < NUM_THREADS; i++)
     {
         pthread_mutex_lock(&lock);
         printf("Stage is empty, letting someone on... \n");
@@ -65,6 +66,7 @@ void *test(void *arg)
 
 int run_summer()
 {
+    printf("\nStart of problem number 1\n\n");
     int i = 0;
     int error;
 
@@ -82,7 +84,7 @@ int run_summer()
 
     pthread_create(&parent, NULL, &parent_test, NULL);  
 
-    while (i < num_threads)
+    while (i < NUM_THREADS)
     {
         int val = i;
         error = pthread_create(&(tid[i]), NULL, &test, (void *)&id[i]);
@@ -95,7 +97,7 @@ int run_summer()
     }
 
     pthread_join(parent, NULL);
-    for (i = 0; i < num_threads; i++)
+    for (i = 0; i < NUM_THREADS; i++)
     {
         pthread_join(tid[i], NULL);
     }
