@@ -59,6 +59,7 @@ void *test(void *arg)
     printf("I am now entering the stage with id : [%d] \n", val);
     sleep(2);
     printf("Now exting the stage \n");
+    isFilled = 0;
     pthread_mutex_unlock(&lock);
 }
 
