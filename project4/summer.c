@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <semaphore.h>
 #include "summer.h"
 
 /* NOTES
@@ -24,90 +25,107 @@ Students should simulate a dancer, juggler, or soloist’s performance using the
 Students should explain how their solution avoids depriving the different performer types of the stage in a
 text file, problem1 explanation.txt, that will be submitted along with the source code.
 */
+
 /*
-cond
+sem
 */
-#define NUM_DANCERS 15
-#define NUM_JUGGLERS 8
-#define NUM_SOLOISTS 2
 
-pthread_t dancers[NUM_DANCERS];
-pthread_t jugglers[NUM_JUGGLERS];
-pthread_t soloists[NUM_SOLOISTS];
-pthread_t parent;
-pthread_mutex_t lock;
-pthread_cond_t cond;
-int isFilled = 0;
-int id[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+#define NUM_DANCER 15
+#define NUM_JUGGLER 8
+#define NUM_SOLOIST 2
 
-void *parent_test(void *arg)
-{
-    for (int i = 0; i < NUM_DANCERS; i++)
-    {
-        pthread_mutex_lock(&lock);
-        printf("Stage is empty, letting someone on... \n");
-        isFilled += 1;
-        pthread_mutex_unlock(&lock);
-        pthread_cond_signal(&cond);
-        sleep(1);
-    }
-}
+sem_t pos_sem;
+sem_t group_sem;
 
-void *test(void *arg)
-{
-    pthread_mutex_lock(&lock);
-    int val = *((int *) arg);
-    while (isFilled < 1)
-    {
-        pthread_cond_wait(&cond, &lock);
-    }
-    printf("Dancer %d entering the stage\n", val);
+pthread_t dancers[NUM_DANCER];
+pthread_t jugglers[NUM_JUGGLER];
+pthread_t soloists[NUM_SOLOIST];
+
+void* dancer(void* arg) {
+    sem_wait(&pos_sem);
+    int id = *(int *) arg;
+    printf("dancer [%d] is on stage \n", id);
     int performance_time = rand() % 10 + 1;
     sleep(performance_time);
-    printf("Dancer %d now exiting the stage after performing for %d seconds\n", val, performance_time);
-    isFilled = 0;
-    pthread_mutex_unlock(&lock);
+    printf("dancer [%d] has left the stage after %d seconds\n", id, performance_time);
+    sem_post(&pos_sem);
+    free(arg);
 }
 
-int run_summer()
-{
+void* juggler(void* arg) {
+    sem_wait(&pos_sem);
+    int id = *(int *) arg;
+    printf("jugger [%d] is on stage \n", id);
+    int performance_time = rand() % 10 + 1;
+    sleep(performance_time);
+    printf("jugger [%d] has left the stage after %d seconds\n", id, performance_time);
+    sem_post(&pos_sem);
+    free(arg);
+}
+
+void* soloist(void* arg) {
+    sem_wait(&pos_sem);
+    int id = *(int *) arg;
+    printf("soloist [%d] is on stage\n", id);
+    int performance_time = rand() % 10 + 1;
+    sleep(performance_time);
+    printf("soloist [%d] has left the stage after %d seconds\n", id, performance_time);
+    sem_post(&pos_sem);
+    free(arg);
+}
+
+int run_summer() {
     printf("\nStart of problem number 1\n\n");
     int i = 0;
     int error;
 
-    if (pthread_mutex_init(&lock, NULL) != 0)
-    {
-        printf("mutex init failed \n");
-        return 1;
-    }
+    sem_init(&pos_sem, 0, 4);
+    sem_init(&group_sem, 0, 1);
 
-    if (pthread_cond_init(&cond, NULL) != 0)
-    {
-        printf("cond init failed\n");
-        return 1;
-    }
 
-    pthread_create(&parent, NULL, &parent_test, NULL);  
-
-    while (i < NUM_DANCERS)
-    {
+    while (i < NUM_DANCER) {
         int *val = malloc(sizeof(int));
         *val = i+1;
-        error = pthread_create(&(dancers[i]), NULL, &test, val);
+        error = pthread_create(&(dancers[i]), NULL, &dancer, val);
 
-        if (error != 0)
-        {
+        if(error != 0) {
+            printf("error in thread creation\n");
+        }
+        i++;
+    }
+    i = 0;
+    while (i < NUM_JUGGLER) {
+        int *val = malloc(sizeof(int));
+        *val = i+1;
+        error = pthread_create(&(jugglers[i]), NULL, &juggler, val);
+
+        if(error != 0) {
+            printf("error in thread creation\n");
+        }
+        i++;
+    }
+    i = 0;
+    while (i < NUM_SOLOIST) {
+        int *val = malloc(sizeof(int));
+        *val = i+1;
+        error = pthread_create(&(soloists[i]), NULL, &soloist, val);
+
+        if(error != 0) {
             printf("error in thread creation\n");
         }
         i++;
     }
 
-    pthread_join(parent, NULL);
-    for (i = 0; i < NUM_DANCERS; i++)
-    {
+    for(int i = 0; i < NUM_DANCER; i++) {
         pthread_join(dancers[i], NULL);
     }
-    pthread_mutex_destroy(&lock);
-
+    for(int i = 0; i < NUM_JUGGLER; i++) {
+        pthread_join(jugglers[i], NULL);
+    }
+    for(int i = 0; i < NUM_SOLOIST; i++) {
+        pthread_join(soloists[i], NULL);
+    }
+    sem_destroy(&pos_sem);
+    sem_destroy(&group_sem);
     return 0;
 }
