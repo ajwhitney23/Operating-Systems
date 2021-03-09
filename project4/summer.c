@@ -24,6 +24,9 @@ number) and which stage position (e.g., 1, 2, 3, or 4) it is using when it enter
 Students should simulate a dancer, juggler, or soloist’s performance using the sleep() call with a random wait time.
 Students should explain how their solution avoids depriving the different performer types of the stage in a
 text file, problem1 explanation.txt, that will be submitted along with the source code.
+
+4 dancers or 4 jugglers at a time on the stage max, 1 soloist at a time
+no groups can mix
 */
 
 /*
