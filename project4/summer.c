@@ -27,9 +27,13 @@ text file, problem1 explanation.txt, that will be submitted along with the sourc
 /*
 cond
 */
-#define NUM_THREADS 15
+#define NUM_DANCERS 15
+#define NUM_JUGGLERS 8
+#define NUM_SOLOISTS 2
 
-pthread_t tid[NUM_THREADS];
+pthread_t dancers[NUM_DANCERS];
+pthread_t jugglers[NUM_JUGGLERS];
+pthread_t soloists[NUM_SOLOISTS];
 pthread_t parent;
 pthread_mutex_t lock;
 pthread_cond_t cond;
@@ -38,7 +42,7 @@ int id[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 
 void *parent_test(void *arg)
 {
-    for (int i = 0; i < NUM_THREADS; i++)
+    for (int i = 0; i < NUM_DANCERS; i++)
     {
         pthread_mutex_lock(&lock);
         printf("Stage is empty, letting someone on... \n");
@@ -57,9 +61,10 @@ void *test(void *arg)
     {
         pthread_cond_wait(&cond, &lock);
     }
-    printf("I am now entering the stage with id : [%d] \n", val);
-    sleep(2);
-    printf("Now exting the stage \n");
+    printf("Dancer %d entering the stage\n", val);
+    int performance_time = rand() % 10 + 1;
+    sleep(performance_time);
+    printf("Dancer %d now exiting the stage after performing for %d seconds\n", val, performance_time);
     isFilled = 0;
     pthread_mutex_unlock(&lock);
 }
@@ -84,10 +89,11 @@ int run_summer()
 
     pthread_create(&parent, NULL, &parent_test, NULL);  
 
-    while (i < NUM_THREADS)
+    while (i < NUM_DANCERS)
     {
-        int val = i;
-        error = pthread_create(&(tid[i]), NULL, &test, (void *)&id[i]);
+        int *val = malloc(sizeof(int));
+        *val = i+1;
+        error = pthread_create(&(dancers[i]), NULL, &test, val);
 
         if (error != 0)
         {
@@ -97,9 +103,9 @@ int run_summer()
     }
 
     pthread_join(parent, NULL);
-    for (i = 0; i < NUM_THREADS; i++)
+    for (i = 0; i < NUM_DANCERS; i++)
     {
-        pthread_join(tid[i], NULL);
+        pthread_join(dancers[i], NULL);
     }
     pthread_mutex_destroy(&lock);
 
