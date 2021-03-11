@@ -86,7 +86,6 @@ no groups can mix
 //     sem_init(&pos_sem, 0, 4);
 //     sem_init(&group_sem, 0, 1);
 
-
 //     while (i < NUM_DANCER) {
 //         int *val = malloc(sizeof(int));
 //         *val = i+1;
@@ -156,28 +155,42 @@ int numSoloists = 0;
 int dancersRun = 0;
 int jugglersRun = 0;
 int soloRun = 0;
+int debug = 0;
 
-void set_next_group(int override) {
+void set_next_group()
+{
     int numGroups;
     int dancerOdds = (NUM_DANCERS - dancersRun) * (numJugglers + numSoloists + 1);
     int jugglerOdds = (NUM_JUGGLERS - jugglersRun) * (numDancers + numSoloists + 1);
     int soloOdds = (NUM_SOLOISTS - soloRun) * (numDancers + numJugglers + 5);
-    if(numPosLeft == 0 || override) {
-        int res = rand() % (dancerOdds + jugglerOdds + soloOdds);
-        printf("dancerOdds %d | juggerOdds %d | soloOdds %d | res %d\n", dancerOdds, jugglerOdds, soloOdds, res);
-        if (res < dancerOdds) {
-            nextGroup = 1;
-        } else if (res < jugglerOdds + dancerOdds) {
-            nextGroup = 2;
-        } else {
-            nextGroup = 3;
-        }
+    int totalOdds = dancerOdds + jugglerOdds + soloOdds + 1;
+
+    int res = rand() % totalOdds;
+    if(debug) {
+        printf("Dancers[%d] = %d/%d | Jugglers[%d] = %d/%d | Soloists[%d] = %d/%d\n", (NUM_DANCERS - dancersRun),  dancerOdds , totalOdds -1,
+                                                                         (NUM_JUGGLERS - jugglersRun), jugglerOdds , totalOdds -1,
+                                                                         (NUM_SOLOISTS - soloRun), soloOdds , totalOdds -1);
+    }
+    if (res <= dancerOdds)
+    {
+        nextGroup = 1;
+    }
+    else if (res <= jugglerOdds + dancerOdds)
+    {
+        nextGroup = 2;
+    }
+    else
+    {
+        nextGroup = 3;
     }
 }
 
-int place(int id) {
-    for(int i = 0; i < 4; i++) {
-        if(seats[i] == 0) {
+int place(int id)
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (seats[i] == 0)
+        {
             seats[i] = id;
             return i + 1;
         }
@@ -185,9 +198,12 @@ int place(int id) {
     return -1;
 }
 
-void leave_pos(int id) {
-    for(int i = 0; i < 4; i++) {
-        if(seats[i] == id) {
+void leave_pos(int id)
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (seats[i] == id)
+        {
             seats[i] = 0;
         }
     }
@@ -196,7 +212,7 @@ void leave_pos(int id) {
 void *dancer(void *arg)
 {
     pthread_mutex_lock(&lock);
-    int id = *((int *) arg);
+    int id = *((int *)arg);
     while (!(numPosLeft > 0 && nextGroup == 1 && numJugglers == 0 && numSoloists == 0))
     {
         // printf("dancer %d %d\n", id, !(numPosLeft > 0 && nextGroup == 1));
@@ -205,7 +221,9 @@ void *dancer(void *arg)
     numPosLeft--;
     numDancers++;
     dancersRun++;
-    set_next_group(0);
+    if(numPosLeft == 0 || dancersRun == NUM_DANCERS) {
+        set_next_group();
+    }
     int pos = place(id);
     printf("Dancer %d entering the stage at position %d\n", id, pos);
     int performance_time = (rand() % 3) + 1;
@@ -215,7 +233,6 @@ void *dancer(void *arg)
     printf("Dancer %d now exiting the stage at position %d after performing for %d minutes\n", id, pos, performance_time);
     leave_pos(id);
     numDancers--;
-    // printf("numPosLeft: %d | nextGroup %d\n", numPosLeft, nextGroup);
     pthread_cond_broadcast(&spot_open);
     free(arg);
 }
@@ -223,7 +240,7 @@ void *dancer(void *arg)
 void *juggler(void *arg)
 {
     pthread_mutex_lock(&lock);
-    int id = *((int *) arg);
+    int id = *((int *)arg);
     while (!(numPosLeft > 0 && nextGroup == 2 && numDancers == 0 && numSoloists == 0))
     {
         pthread_cond_wait(&spot_open, &lock);
@@ -231,7 +248,9 @@ void *juggler(void *arg)
     numPosLeft--;
     numJugglers++;
     jugglersRun++;
-    set_next_group(0);
+    if(numPosLeft == 0 || jugglersRun == NUM_JUGGLERS) {
+        set_next_group();
+    }
     int pos = place(id);
     printf("Juggler %d entering the stage at position %d\n", id, pos);
     int performance_time = (rand() % 3) + 1;
@@ -248,7 +267,7 @@ void *juggler(void *arg)
 void *soloist(void *arg)
 {
     pthread_mutex_lock(&lock);
-    int id = *((int *) arg);
+    int id = *((int *)arg);
     while (!(numPosLeft > 0 && nextGroup == 3 && numDancers == 0 && numJugglers == 0))
     {
         pthread_cond_wait(&spot_open, &lock);
@@ -256,7 +275,9 @@ void *soloist(void *arg)
     numPosLeft -= 4;
     numSoloists++;
     soloRun++;
-    set_next_group(0);
+    if(numPosLeft == 0 || soloRun == NUM_SOLOISTS) {
+        set_next_group();
+    }
     int pos = place(id);
     printf("Soloist %d entering the stage at position %d\n", id, pos);
     int performance_time = (rand() % 3) + 1;
@@ -270,8 +291,9 @@ void *soloist(void *arg)
     free(arg);
 }
 
-int run_summer()
+int run_summer(int arg)
 {
+    debug = arg;
     srand(time(NULL));
     printf("\nStart of problem number 1\n\n");
     int i = 0;
@@ -287,14 +309,14 @@ int run_summer()
     {
         printf("cond init failed\n");
         return 1;
-    } 
+    }
 
-    set_next_group(1);
+    set_next_group();
 
     while (i < NUM_DANCERS)
     {
         int *val = malloc(sizeof(int));
-        *val = i+1;
+        *val = i + 1;
         error = pthread_create(&(dancers[i]), NULL, &dancer, val);
 
         if (error != 0)
@@ -309,7 +331,7 @@ int run_summer()
     while (i < NUM_JUGGLERS)
     {
         int *val = malloc(sizeof(int));
-        *val = i+1;
+        *val = i + 1;
         error = pthread_create(&(jugglers[i]), NULL, &juggler, val);
 
         if (error != 0)
@@ -324,7 +346,7 @@ int run_summer()
     while (i < NUM_SOLOISTS)
     {
         int *val = malloc(sizeof(int));
-        *val = i+1;
+        *val = i + 1;
         error = pthread_create(&(soloists[i]), NULL, &soloist, val);
 
         if (error != 0)
@@ -338,11 +360,11 @@ int run_summer()
     {
         pthread_join(dancers[i], NULL);
     }
-    for(i = 0; i < NUM_JUGGLERS; i++) 
+    for (i = 0; i < NUM_JUGGLERS; i++)
     {
         pthread_join(jugglers[i], NULL);
     }
-    for(i = 0; i < NUM_SOLOISTS; i++) 
+    for (i = 0; i < NUM_SOLOISTS; i++)
     {
         pthread_join(soloists[i], NULL);
     }
