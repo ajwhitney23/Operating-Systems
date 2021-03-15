@@ -1,28 +1,24 @@
-
-enum steps{Weighing, Barcoding, Xraying, Jostiling};
-
-
-
 struct package {
     int id;
     int* order;
     int isFragile;
     int numSteps; /* size of order array */
-    int currentStep;
-    int isQueued;
+    char* content;
     struct package *last;
-} package;
+};
 
 struct worker {
     char* name;
-    int team;
-    char* color;
-    struct package currentPackage;
-} worker;
+    int id;
+    int color;
+    struct package *currentPackage;
+};
 
 
 int run_shipping();
 
-struct package create_package();
-struct worker create_worker();
+struct package* create_package(int id, char* content);
+struct worker* create_worker(int id, int team, char* name);
+void print_worker();
+void print_package();
 

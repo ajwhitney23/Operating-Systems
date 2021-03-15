@@ -36,10 +36,11 @@ void set_next_group()
     int totalOdds = dancerOdds + jugglerOdds + soloOdds + 1;
 
     int res = rand() % totalOdds;
-    if(debug) {
-        printf("Dancers[%d] = %d/%d | Jugglers[%d] = %d/%d | Soloists[%d] = %d/%d\n", (NUM_DANCERS - dancersRun),  dancerOdds , totalOdds -1,
-                                                                                    (NUM_JUGGLERS - jugglersRun), jugglerOdds , totalOdds -1,
-                                                                                    (NUM_SOLOISTS - soloRun), soloOdds , totalOdds -1);
+    if (debug)
+    {
+        printf("Dancers[%d] = %d/%d | Jugglers[%d] = %d/%d | Soloists[%d] = %d/%d\n", (NUM_DANCERS - dancersRun), dancerOdds, totalOdds - 1,
+               (NUM_JUGGLERS - jugglersRun), jugglerOdds, totalOdds - 1,
+               (NUM_SOLOISTS - soloRun), soloOdds, totalOdds - 1);
     }
     if (res <= dancerOdds)
     {
@@ -90,7 +91,8 @@ void *dancer(void *arg)
     numPosLeft--;
     numDancers++;
     dancersRun++;
-    if(numPosLeft == 0 || dancersRun == NUM_DANCERS) {
+    if (numPosLeft == 0 || dancersRun == NUM_DANCERS)
+    {
         set_next_group();
     }
     int pos = place(id);
@@ -117,7 +119,8 @@ void *juggler(void *arg)
     numPosLeft--;
     numJugglers++;
     jugglersRun++;
-    if(numPosLeft == 0 || jugglersRun == NUM_JUGGLERS) {
+    if (numPosLeft == 0 || jugglersRun == NUM_JUGGLERS)
+    {
         set_next_group();
     }
     int pos = place(id);
@@ -144,7 +147,8 @@ void *soloist(void *arg)
     numPosLeft -= 4;
     numSoloists++;
     soloRun++;
-    if(numPosLeft == 0 || soloRun == NUM_SOLOISTS) {
+    if (numPosLeft == 0 || soloRun == NUM_SOLOISTS)
+    {
         set_next_group();
     }
     int pos = place(id);
@@ -162,7 +166,7 @@ void *soloist(void *arg)
 
 int run_summer(int arg)
 {
-    debug = arg; 
+    debug = arg;
     srand(time(NULL));
     printf("\nStart of problem number 1\n\n");
     int i = 0;

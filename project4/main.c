@@ -8,8 +8,8 @@ int main(int argc, char** argv) {
     if(argc == 2) { //super *icy* cool *extremely* hidden dev FEATURE
         debug = atoi(argv[1]);
     }
-    run_summer(debug);
-    // run_shipping();
+    // run_summer(debug);
+    run_shipping();
 
     return 0;
 }
