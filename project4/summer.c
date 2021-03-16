@@ -18,6 +18,7 @@ pthread_cond_t spot_open;
 int seats[] = {0, 0, 0, 0};
 int numPosLeft = 4;
 int numConcurrent = 0;
+int isFirst = 0;
 int nextGroup = 0; // 1 = Dancer, 2 = Juggler, 3 = Soloist
 int numDancers = 0;
 int numJugglers = 0;
@@ -25,7 +26,7 @@ int numSoloists = 0;
 int dancersRun = 0;
 int jugglersRun = 0;
 int soloRun = 0;
-int debug = 0;
+int summer_debug = 0;
 
 void set_next_group()
 {
@@ -36,7 +37,7 @@ void set_next_group()
     int totalOdds = dancerOdds + jugglerOdds + soloOdds + 1;
 
     int res = rand() % totalOdds;
-    if (debug)
+    if (summer_debug)
     {
         printf("Dancers[%d] = %d/%d | Jugglers[%d] = %d/%d | Soloists[%d] = %d/%d\n", (NUM_DANCERS - dancersRun), dancerOdds, totalOdds - 1,
                (NUM_JUGGLERS - jugglersRun), jugglerOdds, totalOdds - 1,
@@ -82,6 +83,10 @@ void leave_pos(int id)
 
 void *dancer(void *arg)
 {
+    if(isFirst == 0) {
+        set_next_group();
+        isFirst = 1;
+    }
     pthread_mutex_lock(&lock);
     int id = *((int *)arg);
     while (!(numPosLeft > 0 && nextGroup == 1 && numJugglers == 0 && numSoloists == 0))
@@ -166,7 +171,7 @@ void *soloist(void *arg)
 
 int run_summer(int arg)
 {
-    debug = arg;
+    summer_debug = arg;
     srand(time(NULL));
     printf("\nStart of problem number 1\n\n");
     int i = 0;
@@ -183,8 +188,6 @@ int run_summer(int arg)
         printf("cond init failed\n");
         return 1;
     }
-
-    set_next_group();
 
     while (i < NUM_DANCERS)
     {

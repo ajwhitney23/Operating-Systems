@@ -4,6 +4,7 @@
 #include <pthread.h>
 #include <string.h>
 #include <semaphore.h>
+#include <time.h>
 #include "shipping.h"
 
 // /*
@@ -16,12 +17,20 @@
 const char *team_color_n[] = {"Blue", "Red", "Green", "Yellow"};
 const char *steps_n[] = {"Weighing", "Barcoding", "Xraying", "Jostiling"};
 
+struct worker *worker_structz[NUM_WORKERS];
+int proc_pack[4];
+
 sem_t stat_sems[4];
 sem_t team_sems[4];
 
 pthread_t workers[NUM_WORKERS];
 struct package *ppp;
 struct package *delivery_truck;
+
+int conc_p = 0;
+int col_p[4] = {0, 0, 0, 0};
+int stat_o[4] = {0, 0, 0, 0};
+int shipping_debug = 0;
 
 void print_worker(struct worker *w)
 {
@@ -45,40 +54,86 @@ void print_package(struct package *p)
     printf("\n ");
 }
 
+
+void print_results() {
+
+    int highest = 0;
+    int id = 0;
+    for(int i = 0; i < NUM_WORKERS; i++) {
+        if(worker_structz[i]->packages_proc > highest) {
+            highest = worker_structz[i]->packages_proc;
+            id = i;
+        }
+    }
+
+    for(int i = 0; i < 4; i++) {
+        printf("Team %s processed %d packages\n", team_color_n[i], proc_pack[i]);
+    }
+    printf("%s delivered the most packages -> %d\n", worker_structz[id]->name, highest);
+}
+
 void *do_work(void *arg)
 {
-    struct worker *me = ((struct worker *)arg);
+    while (1)
+    {
+        struct worker *me = ((struct worker *)arg);
+        sem_wait(&team_sems[me->color]);
+        if (ppp == NULL)
+        {
+            sem_post(&(team_sems[me->color]));
+            return 0;
+        }
+        me->currentPackage = ppp;
+        ppp = ppp->last;
+        me->currentPackage->worker = me;
+        if(shipping_debug) {
+            conc_p++;
+            col_p[me->color]++;
+            printf("Packages: %d\n", conc_p);
+            printf("Workers Active: B %d | R %d | G %d | Y %d\n" ,col_p[0], col_p[1], col_p[2], col_p[3]);
+        }
+        printf("%s [%d] picked up package %d \n", me->name, me->id, me->currentPackage->id);
 
-    sem_wait(&team_sems[me->color]);
-    if(ppp == NULL) {
+        int stat_visit = 0;
+        int current_station;
+        do
+        {
+            current_station = me->currentPackage->order[stat_visit];
+            sem_wait(&stat_sems[current_station]);
+            if(shipping_debug) {
+                stat_o[current_station]++;
+                printf("Stations Active: W %d | B %d | X %d | J %d\n", stat_o[0], stat_o[1], stat_o[2], stat_o[3]);
+            }
+            int work_time = (rand() % 3) + 1;
+            if(current_station == 3 && me->currentPackage->isFragile) {
+                printf("%s with %d @ %s for %d minute(s) shaking the living hell out of it\n", me->name, me->currentPackage->id, steps_n[current_station], work_time);
+            } else {
+                printf("%s with %d @ %s for %d minute(s)\n", me->name, me->currentPackage->id, steps_n[current_station], work_time);
+            }
+            sleep(work_time);
+            stat_visit++;
+            if(shipping_debug) {
+                stat_o[current_station]--;
+                printf("Stations Active: W %d | B %d | X %d | J %d\n", stat_o[0], stat_o[1], stat_o[2], stat_o[3]);
+            }
+            sem_post(&stat_sems[current_station]);
+        } while (me->currentPackage->numSteps != stat_visit);
+
+        printf("%s finished loading package %d on the truck \n", me->name, me->currentPackage->id);
+        me->packages_proc++;
+        proc_pack[me->color]++;
+        me->currentPackage->last = delivery_truck;
+        delivery_truck = me->currentPackage;
+        if (shipping_debug)
+        {
+            conc_p--;
+            printf("Current number of packages: %d\n", conc_p);
+            col_p[me->color]--;
+            printf("Workers Active: B %d | R %d | G %d | Y %d\n", col_p[0], col_p[1], col_p[2], col_p[3]);
+        }
         sem_post(&(team_sems[me->color]));
-        return 0;
+        sleep(1);
     }
-    me->currentPackage = ppp;
-    ppp = ppp->last;
-
-    // print_worker(&me);
-    printf("%s picked up package %d \n ", me->name, me->currentPackage->id);
-    // print_package(me->currentPackage);
-
-    int stat_visit = 0;
-    int current_station;
-    do
-    {   
-        current_station = me->currentPackage->order[stat_visit];
-        sem_wait(&stat_sems[current_station]);
-        printf("%s with %d @ %s \n ", me->name, me->currentPackage->id, steps_n[current_station]);
-        sleep(2);
-        stat_visit++;
-        sem_post(&stat_sems[current_station]);
-    } while (me->currentPackage->numSteps != stat_visit);
-
-    // print_worker(&me);
-    printf("%s finished loading package %d on the truck \n ", me->name, me->currentPackage->id);
-    // print_package(me->currentPackage);
-
-    sem_post(&(team_sems[me->color]));
-    sleep(1);
 }
 
 struct package *create_package(int id, char *content)
@@ -115,20 +170,23 @@ struct package *create_package(int id, char *content)
     return temp;
 }
 
-struct worker *create_worker(int id, int team, char *name)
+struct worker *create_worker(int id, char *buff)
 {
     struct worker *temp = malloc(sizeof(struct worker));
+    char *name = malloc(strlen(buff));
+    memcpy(name, buff, strlen(buff));
     temp->name = name;
-    temp->id = id;
-    temp->color = team;
-
+    temp->id = id + 1;
+    temp->color = id / 10;
+    temp->packages_proc = 0;
+    worker_structz[id] = temp;
     return temp;
 }
 
-int run_shipping()
+int run_shipping(int arg)
 {
-
-    srand(12345);
+    shipping_debug = arg;
+    srand(time(NULL));
 
     printf("\nStart of problem number 2\n\n");
     int i = 0;
@@ -150,36 +208,36 @@ int run_shipping()
     for (i = 0; i < NUM_PACKAGES; i++)
     {
         getline(&buff, &len, fp);
-        buff[strlen(buff) - 1] = '\0';
-        struct package *temp = create_package(i, buff);
+        // buff[strlen(buff) - 1] = '\0';
+        char *content = malloc(strlen(buff));
+        memcpy(content, buff, strlen(buff) - 1);
+        content[strlen(content)] = '\0';
+        struct package *temp = create_package(i, content);
         if (ppp != NULL)
         {
             temp->last = ppp;
         }
         ppp = temp;
-        // print_package(temp);
     }
     fclose(fp);
-
     fp = fopen("names.txt", "r");
     for (i = 0; i < NUM_WORKERS; i++)
     {
         getline(&buff, &len, fp);
-        buff[strlen(buff) - 1] = '\0';
-        struct worker *temp = malloc(sizeof(struct worker));
-        temp->name = buff;
-        temp->id = i+1;
-        temp->color = i/10;
-
+        buff[strlen(buff) - 2] = '\0';
+        struct worker *temp = create_worker(i, buff);
         error = pthread_create(&(workers[i]), NULL, &do_work, temp);
 
-        if(error != 0) {
+        if (error != 0)
+        {
             printf("error in thread creation\n");
         }
     }
     fclose(fp);
 
-    for(int i = 0; i < NUM_WORKERS; i++) {
+
+    for (int i = 0; i < NUM_WORKERS; i++)
+    {
         pthread_join(workers[i], NULL);
     }
 
@@ -188,5 +246,8 @@ int run_shipping()
         sem_destroy(&(stat_sems[i]));
         sem_destroy(&(team_sems[i]));
     }
+
+    print_results();
+
     return 0;
 }

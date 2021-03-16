@@ -4,6 +4,7 @@ struct package {
     int isFragile;
     int numSteps; /* size of order array */
     char* content;
+    struct worker *worker;
     struct package *last;
 };
 
@@ -12,13 +13,15 @@ struct worker {
     int id;
     int color;
     struct package *currentPackage;
+    int packages_proc;
 };
 
 
-int run_shipping();
+int run_shipping(int arg);
 
 struct package* create_package(int id, char* content);
-struct worker* create_worker(int id, int team, char* name);
+struct worker* create_worker(int id, char* name);
 void print_worker();
 void print_package();
+void print_results();
 

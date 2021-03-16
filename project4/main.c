@@ -5,11 +5,21 @@
 
 int main(int argc, char** argv) {
     int debug = 0;
-    if(argc == 2) { //super *icy* cool *extremely* hidden dev FEATURE
+    int toRun = 0;
+    if(argc > 1) { //super *icy* cool *extremely* hidden dev FEATURE
         debug = atoi(argv[1]);
+        if(argc > 2) {
+            toRun = atoi(argv[2]);
+        }
     }
-    // run_summer(debug);
-    run_shipping();
+    if(toRun == 2) {
+        run_shipping(debug);
+    } else if(toRun == 1){  
+        run_summer(debug);
+    } else {
+        run_summer(debug);
+        run_shipping(debug);
+    }
 
     return 0;
 }
