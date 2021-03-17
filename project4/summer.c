@@ -172,7 +172,6 @@ void *soloist(void *arg)
 int run_summer(int arg)
 {
     summer_debug = arg;
-    srand(time(NULL));
     printf("\nStart of problem number 1\n\n");
     int i = 0;
     int error;

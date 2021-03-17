@@ -7,10 +7,6 @@
 #include <time.h>
 #include "shipping.h"
 
-// /*
-// sem
-// */
-
 #define NUM_WORKERS 40 /* 4 by 10 */
 #define NUM_PACKAGES 80
 
@@ -66,10 +62,12 @@ void print_results() {
         }
     }
 
+    printf("\nFinal Results: \n\n");
+
     for(int i = 0; i < 4; i++) {
-        printf("Team %s processed %d packages\n", team_color_n[i], proc_pack[i]);
+        printf("Team [%s] processed [%d] packages\n", team_color_n[i], proc_pack[i]);
     }
-    printf("%s delivered the most packages -> %d\n", worker_structz[id]->name, highest);
+    printf("%s delivered the most packages [%d]\n", worker_structz[id]->name, highest);
 }
 
 void *do_work(void *arg)
@@ -92,7 +90,7 @@ void *do_work(void *arg)
             printf("Packages: %d\n", conc_p);
             printf("Workers Active: B %d | R %d | G %d | Y %d\n" ,col_p[0], col_p[1], col_p[2], col_p[3]);
         }
-        printf("%s [%d] picked up package %d \n", me->name, me->id, me->currentPackage->id);
+        printf("%s [%s][%d] picked up Package [%d] [%s] \n", me->name, team_color_n[me->color], me->id, me->currentPackage->id, me->currentPackage->content);
 
         int stat_visit = 0;
         int current_station;
@@ -106,9 +104,9 @@ void *do_work(void *arg)
             }
             int work_time = (rand() % 3) + 1;
             if(current_station == 3 && me->currentPackage->isFragile) {
-                printf("%s with %d @ %s for %d minute(s) shaking the living hell out of it\n", me->name, me->currentPackage->id, steps_n[current_station], work_time);
+                printf("%s [%s][%d] with Package [%d] at [%s] for %d minute(s) shaking the living hell out of it\n", me->name, team_color_n[me->color], me->id, me->currentPackage->id, steps_n[current_station], work_time);
             } else {
-                printf("%s with %d @ %s for %d minute(s)\n", me->name, me->currentPackage->id, steps_n[current_station], work_time);
+                printf("%s [%s][%d] with Package [%d] at [%s] for %d minute(s)\n", me->name, team_color_n[me->color], me->id, me->currentPackage->id, steps_n[current_station], work_time);
             }
             sleep(work_time);
             stat_visit++;
@@ -119,7 +117,7 @@ void *do_work(void *arg)
             sem_post(&stat_sems[current_station]);
         } while (me->currentPackage->numSteps != stat_visit);
 
-        printf("%s finished loading package %d on the truck \n", me->name, me->currentPackage->id);
+        printf("%s [%s][%d] finished loading Package [%d] [%s] on the delivery truck \n", me->name, team_color_n[me->color], me->id, me->currentPackage->id, me->currentPackage->content);
         me->packages_proc++;
         proc_pack[me->color]++;
         me->currentPackage->last = delivery_truck;
@@ -186,7 +184,6 @@ struct worker *create_worker(int id, char *buff)
 int run_shipping(int arg)
 {
     shipping_debug = arg;
-    srand(time(NULL));
 
     printf("\nStart of problem number 2\n\n");
     int i = 0;
@@ -208,7 +205,7 @@ int run_shipping(int arg)
     for (i = 0; i < NUM_PACKAGES; i++)
     {
         getline(&buff, &len, fp);
-        // buff[strlen(buff) - 1] = '\0';
+        buff[strlen(buff) - 1] = '\0';
         char *content = malloc(strlen(buff));
         memcpy(content, buff, strlen(buff) - 1);
         content[strlen(content)] = '\0';
