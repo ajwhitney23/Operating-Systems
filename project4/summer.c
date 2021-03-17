@@ -172,7 +172,8 @@ void *soloist(void *arg)
 int run_summer(int arg)
 {
     summer_debug = arg;
-    printf("\nStart of problem number 1\n\n");
+    printf("\nWPI\'s Summer Spectacular\n");
+    printf("#ItzJazzOClock\n\n");
     int i = 0;
     int error;
 

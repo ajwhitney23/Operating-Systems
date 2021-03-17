@@ -19,6 +19,7 @@ int proc_pack[4];
 sem_t stat_sems[4];
 sem_t team_sems[4];
 sem_t conveyor_sem;
+sem_t allocate_stat_sem;
 
 pthread_t workers[NUM_WORKERS];
 struct package *ppp;
@@ -96,19 +97,25 @@ void *do_work(void *arg)
 
         int stat_visit = 0;
         int current_station;
+        sem_wait(&allocate_stat_sem);
+        for(int i = 0; i < me->currentPackage->numSteps; i++) {
+            sem_wait(&stat_sems[me->currentPackage->order[i]]);
+        }
+        sem_post(&allocate_stat_sem);
         do
         {
             current_station = me->currentPackage->order[stat_visit];
-            sem_wait(&stat_sems[current_station]);
-            sem_wait(&conveyor_sem);
-            belt++;
-            printf("Package [%d][%s] is now moving on the conveyor belt\n", me->currentPackage->id, me->currentPackage->content);
-            if(shipping_debug)  {
-                printf("Conveyor Belt : %d \n", belt);
+            if(stat_visit != 1) {
+                sem_wait(&conveyor_sem);
+                belt++;
+                printf("Package [%d][%s] is now moving on the conveyor belt\n", me->currentPackage->id, me->currentPackage->content);
+                if(shipping_debug)  {
+                    printf("Conveyor Belt : %d \n", belt);
+                }
+                sleep(1);
+                belt--;
+                sem_post(&conveyor_sem);
             }
-            sleep(1);
-            belt--;
-            sem_post(&conveyor_sem);
             if(shipping_debug) {
                 stat_o[current_station]++;
                 printf("Stations Active: W %d | B %d | X %d | J %d\n", stat_o[0], stat_o[1], stat_o[2], stat_o[3]);
@@ -196,7 +203,8 @@ int run_shipping(int arg)
 {
     shipping_debug = arg;
 
-    printf("\nStart of problem number 2\n\n");
+    printf("\nShipping Shape Up\n");
+    printf("#FedUpsWithFedOops\n\n");
     int i = 0;
     int error;
 
@@ -206,6 +214,7 @@ int run_shipping(int arg)
         sem_init(&(team_sems[i]), 0, 1);
     }
     sem_init(&conveyor_sem, 0, 1);
+    sem_init(&allocate_stat_sem, 0, 1);
 
     FILE *fp;
     char *buff;
@@ -256,6 +265,7 @@ int run_shipping(int arg)
         sem_destroy(&(team_sems[i]));
     }
     sem_destroy(&conveyor_sem);
+    sem_destroy(&allocate_stat_sem);
 
     print_results();
 

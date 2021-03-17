@@ -1,0 +1,21 @@
+How our system works:
+Step 1 - 40 workers are split into 4 teams of 10.
+Step 2 - Each worker sem_waits on their team (a semaphore with an inital value of 1).
+Step 3 - Each worker takes a package from the PPP, popping it from a linked list; if there are no packages left return 0.
+Step 4 - Up to 4 workers then sem_wait on the allocation (a semaphore with an inital value of 1) on each station.
+Step 5 - Workers sleep at the first they allocated for a random amount of seconds before posting to the stations semaphore.
+Step 6 - Workers check to see if they have completed the customers orders, if they did they place the package on the truck (a linked list) 
+            and post to their team; then sleep(1) before returning to step 2.
+Step 7 - Workers then sem_wait on the conveyor belt (a semaphore with an inital value of 1).
+Step 8 - Workers sleep(1) and post to the conveyor belt.
+Step 9 - Workers sleep at the next they allocated for a random amount of seconds before posting to the stations semaphore.
+Step 10 - Return to step 5.
+
+This ensures no deadlocks because each worker grabs all the semaphores they need before they begin working. This means that workers will never be
+trying to access a station that is occipied, and therefore never trying to access a station that is trying to access it. Since we do not revist 
+stations we can post the semaphore after we are done with that station and not worry about deadlocks.
+
+This ensures fairness because each team is only ever allowed one worker at a time. Each team semeaphore is initialized to 1 and when a worker
+grabs that semaphore it will be set to 0 forcing all other team members to wait. One concession we had to make is, adding a sleep in step 6. 
+This sleep makes sure that when a worker finishes a package a different worker will replace them. With out a sleep there is no gurentee that a
+different worker will get tagged in.

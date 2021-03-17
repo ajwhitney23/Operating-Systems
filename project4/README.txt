@@ -22,7 +22,9 @@ How to build the program:   make all to build p4 binary
 
 Program Source:		main.c, shipping.c, summer.c, shipping.h, names.txt, things.txt, seed.txt
 
-Additional Files:		output.txt, README.txt, ajwhitney.docx, nmbargman.docx, Makefile, problem1_explanation.txt, problem2_explanation.txt, project4.pdf
+Additional Files:		README.txt, ajwhitney.docx, nmbargman.docx, Makefile, problem1_explanation.txt, problem2_explanation.txt, project4.pdf
+
+Additional Notes:       Problem 2 Takes a while to run to prevent deadlocks
 
 Results:
 
@@ -92,101 +94,89 @@ Dancer 12 now exiting the stage at position 4 after performing for 3 minutes
 Dancer 15 now exiting the stage at position 3 after performing for 1 minutes
 Dancer 14 now exiting the stage at position 2 after performing for 1 minutes
 
-
-
-
 Start of problem number 2
 
+Packages: 1
+Workers Active: B 1 | R 0 | G 0 | Y 0
 Jose Drake [Blue][1] picked up Package [79] [shawl]
+Stations Active: W 0 | B 1 | X 0 | J 0
 Jose Drake [Blue][1] with Package [79] at [Barcoding] for 3 minute(s)
+Packages: 2
+Workers Active: B 1 | R 1 | G 0 | Y 0
 Myrtle Cross [Red][11] picked up Package [78] [bottle cap]
+Stations Active: W 0 | B 1 | X 0 | J 1
 Myrtle Cross [Red][11] with Package [78] at [Jostiling] for 1 minute(s)
+Packages: 3
+Workers Active: B 1 | R 1 | G 1 | Y 0
 Brett Wagner [Green][21] picked up Package [77] [floor]
+Stations Active: W 0 | B 1 | X 1 | J 1
 Brett Wagner [Green][21] with Package [77] at [Xraying] for 3 minute(s)
+Packages: 4
+Workers Active: B 1 | R 1 | G 1 | Y 1
 Rita Pratt [Yellow][31] picked up Package [76] [twezzers]
+Package [78][bottle cap] is now moving on the conveyor belt
+Stations Active: W 0 | B 1 | X 1 | J 0
+Stations Active: W 1 | B 1 | X 1 | J 0
 Myrtle Cross [Red][11] with Package [78] at [Weighing] for 3 minute(s)
+Package [79][shawl] is now moving on the conveyor belt
+Stations Active: W 1 | B 0 | X 1 | J 0
+Package [77][floor] is now moving on the conveyor belt
+Stations Active: W 1 | B 1 | X 1 | J 0
 Rita Pratt [Yellow][31] with Package [76] at [Barcoding] for 1 minute(s)
+Stations Active: W 1 | B 1 | X 0 | J 0
+Stations Active: W 1 | B 1 | X 0 | J 1
 Brett Wagner [Green][21] with Package [77] at [Jostiling] for 1 minute(s)
-Myrtle Cross [Red][11] with Package [78] at [Xraying] for 2 minute(s)
+Package [76][twezzers] is now moving on the conveyor belt
+Package [77][floor] is now moving on the conveyor belt
+Stations Active: W 1 | B 0 | X 0 | J 1
+Stations Active: W 1 | B 0 | X 0 | J 0
+Package [78][bottle cap] is now moving on the conveyor belt
 Brett Wagner [Green][21] finished loading Package [77] [floor] on the delivery truck
-Jose Drake [Blue][1] with Package [79] at [Weighing] for 1 minute(s)
-Rita Pratt [Yellow][31] with Package [76] at [Jostiling] for 1 minute(s) shaking the living hell out of it
+Current number of packages: 3
+Workers Active: B 1 | R 1 | G 0 | Y 1
+Stations Active: W 1 | B 0 | X 0 | J 1
+Rita Pratt [Yellow][31] with Package [76] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Packages: 4
+Workers Active: B 1 | R 1 | G 1 | Y 1
 Barbara Yates [Green][22] picked up Package [75] [twister]
-Jose Drake [Blue][1] with Package [79] at [Jostiling] for 2 minute(s)
-Rita Pratt [Yellow][31] with Package [76] at [Weighing] for 1 minute(s)
+Stations Active: W 0 | B 0 | X 0 | J 1
+Stations Active: W 0 | B 0 | X 1 | J 1
+Myrtle Cross [Red][11] with Package [78] at [Xraying] for 1 minute(s)
+Stations Active: W 1 | B 0 | X 1 | J 1
+Jose Drake [Blue][1] with Package [79] at [Weighing] for 1 minute(s)
+Package [78][bottle cap] is now moving on the conveyor belt
+Stations Active: W 1 | B 0 | X 0 | J 1
 Myrtle Cross [Red][11] finished loading Package [78] [bottle cap] on the delivery truck
+Current number of packages: 3
+Workers Active: B 1 | R 0 | G 1 | Y 1
+Package [76][twezzers] is now moving on the conveyor belt
+Packages: 4
+Workers Active: B 1 | R 1 | G 1 | Y 1
 Byron Newman [Red][12] picked up Package [74] [balloon]
-Rita Pratt [Yellow][31] finished loading Package [76] [twezzers] on the delivery truck
-Byron Newman [Red][12] with Package [74] at [Weighing] for 3 minute(s)
-Johnny Hale [Yellow][32] picked up Package [73] [cinder block]
-Jose Drake [Blue][1] with Package [79] at [Xraying] for 3 minute(s)
-Barbara Yates [Green][22] with Package [75] at [Jostiling] for 3 minute(s)
-Johnny Hale [Yellow][32] with Package [73] at [Weighing] for 3 minute(s)
-Jose Drake [Blue][1] finished loading Package [79] [shawl] on the delivery truck
+Stations Active: W 1 | B 0 | X 0 | J 0
+Package [79][shawl] is now moving on the conveyor belt
+Stations Active: W 1 | B 0 | X 0 | J 1
+Barbara Yates [Green][22] with Package [75] at [Jostiling] for 2 minute(s)
+Stations Active: W 0 | B 0 | X 0 | J 1
+Stations Active: W 1 | B 0 | X 0 | J 1
+Byron Newman [Red][12] with Package [74] at [Weighing] for 1 minute(s)
+Package [75][twister] is now moving on the conveyor belt
+Stations Active: W 1 | B 0 | X 0 | J 0
+Stations Active: W 1 | B 0 | X 1 | J 0
 Barbara Yates [Green][22] with Package [75] at [Xraying] for 3 minute(s)
-Byron Newman [Red][12] with Package [74] at [Jostiling] for 3 minute(s) shaking the living hell out of it
-Jordan Erickson [Blue][2] picked up Package [72] [apple]
-Jordan Erickson [Blue][2] with Package [72] at [Barcoding] for 3 minute(s)
-Jordan Erickson [Blue][2] with Package [72] at [Xraying] for 3 minute(s)
-Byron Newman [Red][12] with Package [74] at [Barcoding] for 3 minute(s)
-Barbara Yates [Green][22] with Package [75] at [Weighing] for 1 minute(s)
-Byron Newman [Red][12] with Package [74] at [Xraying] for 1 minute(s)
-Jordan Erickson [Blue][2] with Package [72] at [Weighing] for 1 minute(s)
-Barbara Yates [Green][22] with Package [75] at [Barcoding] for 1 minute(s)
-Jordan Erickson [Blue][2] finished loading Package [72] [apple] on the delivery truck
-Byron Newman [Red][12] finished loading Package [74] [balloon] on the delivery truck
-Johnny Hale [Yellow][32] with Package [73] at [Xraying] for 2 minute(s)
-Don Stanley [Blue][3] picked up Package [71] [brocolli]
-Don Stanley [Blue][3] with Package [71] at [Jostiling] for 3 minute(s)
-Kelly Green [Red][13] picked up Package [70] [flag]
-Barbara Yates [Green][22] finished loading Package [75] [twister] on the delivery truck
-Gerald Baldwin [Green][23] picked up Package [69] [remote]
-Johnny Hale [Yellow][32] with Package [73] at [Barcoding] for 1 minute(s)
-Gerald Baldwin [Green][23] with Package [69] at [Xraying] for 3 minute(s)
-Johnny Hale [Yellow][32] finished loading Package [73] [cinder block] on the delivery truck
-Don Stanley [Blue][3] with Package [71] at [Weighing] for 2 minute(s)
-Kelly Green [Red][13] with Package [70] at [Jostiling] for 3 minute(s)
-Eric Lane [Yellow][33] picked up Package [68] [washing machine]
-Eric Lane [Yellow][33] with Package [68] at [Barcoding] for 2 minute(s)
-Eric Lane [Yellow][33] finished loading Package [68] [washing machine] on the delivery truck
-Don Stanley [Blue][3] with Package [71] at [Xraying] for 1 minute(s)
-Gerald Baldwin [Green][23] with Package [69] at [Weighing] for 3 minute(s)
-Cecil Burton [Yellow][34] picked up Package [67] [soy sauce packet]
-Cecil Burton [Yellow][34] with Package [67] at [Barcoding] for 1 minute(s)
-Cecil Burton [Yellow][34] with Package [67] at [Jostiling] for 1 minute(s) shaking the living hell out of it
-Don Stanley [Blue][3] finished loading Package [71] [brocolli] on the delivery truck
-Kelly Green [Red][13] with Package [70] at [Xraying] for 2 minute(s)
-Betty Perez [Blue][4] picked up Package [66] [bread]
-Cecil Burton [Yellow][34] finished loading Package [67] [soy sauce packet] on the delivery truck
-Vincent Mccoy [Yellow][35] picked up Package [65] [towel]
-Gerald Baldwin [Green][23] finished loading Package [69] [remote] on the delivery truck
-Betty Perez [Blue][4] with Package [66] at [Weighing] for 1 minute(s)
-Betsy Silva [Green][24] picked up Package [64] [tire swing]
-Betsy Silva [Green][24] with Package [64] at [Jostiling] for 3 minute(s)
-Kelly Green [Red][13] with Package [70] at [Barcoding] for 3 minute(s)
-Vincent Mccoy [Yellow][35] with Package [65] at [Xraying] for 2 minute(s)
-Betty Perez [Blue][4] finished loading Package [66] [bread] on the delivery truck
-Kelley Santos [Blue][5] picked up Package [63] [toothbrush]
-Kelley Santos [Blue][5] with Package [63] at [Xraying] for 2 minute(s)
-Kelly Green [Red][13] finished loading Package [70] [flag] on the delivery truck
-Betsy Silva [Green][24] with Package [64] at [Weighing] for 1 minute(s)
-Vincent Mccoy [Yellow][35] with Package [65] at [Jostiling] for 1 minute(s) shaking the living hell out of it
-Danny Stewart [Red][14] picked up Package [62] [tooth picks]
-Betsy Silva [Green][24] with Package [64] at [Xraying] for 3 minute(s)
-Vincent Mccoy [Yellow][35] with Package [65] at [Barcoding] for 1 minute(s)
-Danny Stewart [Red][14] with Package [62] at [Jostiling] for 1 minute(s) shaking the living hell out of it
-Danny Stewart [Red][14] finished loading Package [62] [tooth picks] on the delivery truck
-Vincent Mccoy [Yellow][35] with Package [65] at [Weighing] for 1 minute(s)
+Stations Active: W 1 | B 0 | X 1 | J 1
+Jose Drake [Blue][1] with Package [79] at [Jostiling] for 3 minute(s)
+Package [74][balloon] is now moving on the conveyor belt
 
 ...
 
 Final Results:
 
-Team [Blue] processed [19] packages
-Team [Red] processed [19] packages
-Team [Green] processed [22] packages
+Team [Blue] processed [20] packages
+Team [Red] processed [20] packages
+Team [Green] processed [20] packages
 Team [Yellow] processed [20] packages
-Brett Wagner delivered the most packages [3]
+Jose Drake delivered the most packages [2]
             
 
 Procedures:	
