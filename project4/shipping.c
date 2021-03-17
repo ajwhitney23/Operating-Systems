@@ -18,6 +18,7 @@ int proc_pack[4];
 
 sem_t stat_sems[4];
 sem_t team_sems[4];
+sem_t conveyor_sem;
 
 pthread_t workers[NUM_WORKERS];
 struct package *ppp;
@@ -26,6 +27,7 @@ struct package *delivery_truck;
 int conc_p = 0;
 int col_p[4] = {0, 0, 0, 0};
 int stat_o[4] = {0, 0, 0, 0};
+int belt = 0;
 int shipping_debug = 0;
 
 void print_worker(struct worker *w)
@@ -98,6 +100,15 @@ void *do_work(void *arg)
         {
             current_station = me->currentPackage->order[stat_visit];
             sem_wait(&stat_sems[current_station]);
+            sem_wait(&conveyor_sem);
+            belt++;
+            printf("Package [%d][%s] is now moving on the conveyor belt\n", me->currentPackage->id, me->currentPackage->content);
+            if(shipping_debug)  {
+                printf("Conveyor Belt : %d \n", belt);
+            }
+            sleep(1);
+            belt--;
+            sem_post(&conveyor_sem);
             if(shipping_debug) {
                 stat_o[current_station]++;
                 printf("Stations Active: W %d | B %d | X %d | J %d\n", stat_o[0], stat_o[1], stat_o[2], stat_o[3]);
@@ -194,6 +205,7 @@ int run_shipping(int arg)
         sem_init(&(stat_sems[i]), 0, 1);
         sem_init(&(team_sems[i]), 0, 1);
     }
+    sem_init(&conveyor_sem, 0, 1);
 
     FILE *fp;
     char *buff;
@@ -243,6 +255,7 @@ int run_shipping(int arg)
         sem_destroy(&(stat_sems[i]));
         sem_destroy(&(team_sems[i]));
     }
+    sem_destroy(&conveyor_sem);
 
     print_results();
 

@@ -1,0 +1,8 @@
+Our solution prevents thread starvation by having the last thread of a full 
+stage (or last of it's type) recalcuate the probabilty of picking
+which type of performer goes on stage next. This probabilty is calcuated
+per group using two factors, how many of the type is left, and how many of
+the other types is currently on stage. A number is then randomly selected 
+by the thread between the range of all three odds added together.  If the number 
+is in the range of the group, it goes next. The thread then sets a global variable 
+which contains the id of the next group.
