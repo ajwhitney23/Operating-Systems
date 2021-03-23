@@ -1,0 +1,406 @@
+
+WPI's Summer Spectacular
+#ItzJazzOClock
+
+Dancer 1 entering the stage at position 1
+Dancer 2 entering the stage at position 2
+Dancer 3 entering the stage at position 3
+Dancer 4 entering the stage at position 4
+Dancer 4 now exiting the stage at position 4 after performing for 1 minutes
+Dancer 3 now exiting the stage at position 3 after performing for 2 minutes
+Dancer 2 now exiting the stage at position 2 after performing for 3 minutes
+Dancer 1 now exiting the stage at position 1 after performing for 3 minutes
+Juggler 1 entering the stage at position 1
+Juggler 2 entering the stage at position 2
+Juggler 3 entering the stage at position 3
+Juggler 4 entering the stage at position 4
+Juggler 2 now exiting the stage at position 2 after performing for 2 minutes
+Juggler 3 now exiting the stage at position 3 after performing for 2 minutes
+Juggler 4 now exiting the stage at position 4 after performing for 3 minutes
+Juggler 1 now exiting the stage at position 1 after performing for 3 minutes
+Dancer 5 entering the stage at position 1
+Dancer 6 entering the stage at position 2
+Dancer 7 entering the stage at position 3
+Dancer 8 entering the stage at position 4
+Dancer 8 now exiting the stage at position 4 after performing for 1 minutes
+Dancer 5 now exiting the stage at position 1 after performing for 1 minutes
+Dancer 7 now exiting the stage at position 3 after performing for 1 minutes
+Dancer 6 now exiting the stage at position 2 after performing for 3 minutes
+Juggler 5 entering the stage at position 1
+Juggler 6 entering the stage at position 2
+Juggler 7 entering the stage at position 3
+Juggler 8 entering the stage at position 4
+Juggler 5 now exiting the stage at position 1 after performing for 1 minutes
+Juggler 7 now exiting the stage at position 3 after performing for 2 minutes
+Juggler 8 now exiting the stage at position 4 after performing for 2 minutes
+Juggler 6 now exiting the stage at position 2 after performing for 3 minutes
+Dancer 11 entering the stage at position 1
+Dancer 12 entering the stage at position 2
+Dancer 13 entering the stage at position 3
+Dancer 14 entering the stage at position 4
+Dancer 14 now exiting the stage at position 4 after performing for 1 minutes
+Dancer 12 now exiting the stage at position 2 after performing for 1 minutes
+Dancer 11 now exiting the stage at position 1 after performing for 2 minutes
+Dancer 13 now exiting the stage at position 3 after performing for 3 minutes
+Soloist 1 entering the stage at position 1
+Soloist 1 now exiting the stage at position 1 after performing for 2 minutes
+Soloist 2 entering the stage at position 1
+Soloist 2 now exiting the stage at position 1 after performing for 1 minutes
+Dancer 15 entering the stage at position 1
+Dancer 10 entering the stage at position 2
+Dancer 9 entering the stage at position 3
+Dancer 9 now exiting the stage at position 3 after performing for 1 minutes
+Dancer 15 now exiting the stage at position 1 after performing for 1 minutes
+Dancer 10 now exiting the stage at position 2 after performing for 1 minutes
+
+Shipping Shape Up
+#FedUpsWithFedOops
+
+Jose Drake [Blue][1] picked up Package [79] [shawl] 
+Jose Drake [Blue][1] with Package [79] at [Jostiling] for 1 minute(s)
+Myrtle Cross [Red][11] picked up Package [78] [bottle cap] 
+Brett Wagner [Green][21] picked up Package [77] [floor] 
+Rita Pratt [Yellow][31] picked up Package [76] [twezzers] 
+Jose Drake [Blue][1] with Package [79] at [Weighing] for 2 minute(s)
+Jose Drake [Blue][1] with Package [79] at [Barcoding] for 3 minute(s)
+Jose Drake [Blue][1] with Package [79] at [Xraying] for 1 minute(s)
+Jose Drake [Blue][1] finished loading Package [79] [shawl] on the delivery truck 
+Myrtle Cross [Red][11] with Package [78] at [Barcoding] for 1 minute(s)
+Jordan Erickson [Blue][2] picked up Package [75] [twister] 
+Myrtle Cross [Red][11] with Package [78] at [Jostiling] for 3 minute(s)
+Brett Wagner [Green][21] with Package [77] at [Barcoding] for 2 minute(s)
+Brett Wagner [Green][21] with Package [77] at [Weighing] for 3 minute(s)
+Myrtle Cross [Red][11] with Package [78] at [Xraying] for 3 minute(s)
+Brett Wagner [Green][21] finished loading Package [77] [floor] on the delivery truck 
+Rita Pratt [Yellow][31] with Package [76] at [Weighing] for 3 minute(s)
+Barbara Yates [Green][22] picked up Package [74] [balloon] 
+Myrtle Cross [Red][11] finished loading Package [78] [bottle cap] on the delivery truck 
+Byron Newman [Red][12] picked up Package [73] [cinder block] 
+Rita Pratt [Yellow][31] with Package [76] at [Barcoding] for 3 minute(s)
+Jordan Erickson [Blue][2] with Package [75] at [Jostiling] for 1 minute(s) shaking the living hell out of it
+Jordan Erickson [Blue][2] with Package [75] at [Xraying] for 2 minute(s)
+Barbara Yates [Green][22] with Package [74] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Rita Pratt [Yellow][31] finished loading Package [76] [twezzers] on the delivery truck 
+Johnny Hale [Yellow][32] picked up Package [72] [apple] 
+Barbara Yates [Green][22] finished loading Package [74] [balloon] on the delivery truck 
+Jordan Erickson [Blue][2] with Package [75] at [Weighing] for 2 minute(s)
+Gerald Baldwin [Green][23] picked up Package [71] [brocolli] 
+Jordan Erickson [Blue][2] finished loading Package [75] [twister] on the delivery truck 
+Byron Newman [Red][12] with Package [73] at [Weighing] for 3 minute(s)
+Don Stanley [Blue][3] picked up Package [70] [flag] 
+Don Stanley [Blue][3] with Package [70] at [Barcoding] for 1 minute(s)
+Don Stanley [Blue][3] finished loading Package [70] [flag] on the delivery truck 
+Betty Perez [Blue][4] picked up Package [69] [remote] 
+Byron Newman [Red][12] finished loading Package [73] [cinder block] on the delivery truck 
+Johnny Hale [Yellow][32] with Package [72] at [Weighing] for 3 minute(s)
+Kelly Green [Red][13] picked up Package [68] [washing machine] 
+Johnny Hale [Yellow][32] finished loading Package [72] [apple] on the delivery truck 
+Kelly Green [Red][13] with Package [68] at [Xraying] for 2 minute(s)
+Eric Lane [Yellow][33] picked up Package [67] [soy sauce packet] 
+Kelly Green [Red][13] with Package [68] at [Weighing] for 2 minute(s)
+Kelly Green [Red][13] finished loading Package [68] [washing machine] on the delivery truck 
+Eric Lane [Yellow][33] with Package [67] at [Weighing] for 1 minute(s)
+Danny Stewart [Red][14] picked up Package [66] [bread] 
+Eric Lane [Yellow][33] with Package [67] at [Jostiling] for 2 minute(s)
+Eric Lane [Yellow][33] finished loading Package [67] [soy sauce packet] on the delivery truck 
+Danny Stewart [Red][14] with Package [66] at [Jostiling] for 1 minute(s)
+Cecil Burton [Yellow][34] picked up Package [65] [towel] 
+Betty Perez [Blue][4] with Package [69] at [Barcoding] for 3 minute(s)
+Danny Stewart [Red][14] with Package [66] at [Xraying] for 1 minute(s)
+Cecil Burton [Yellow][34] with Package [65] at [Jostiling] for 3 minute(s)
+Danny Stewart [Red][14] finished loading Package [66] [bread] on the delivery truck 
+Omar Waters [Red][15] picked up Package [64] [tire swing] 
+Betty Perez [Blue][4] finished loading Package [69] [remote] on the delivery truck 
+Kelley Santos [Blue][5] picked up Package [63] [toothbrush] 
+Cecil Burton [Yellow][34] finished loading Package [65] [towel] on the delivery truck 
+Gerald Baldwin [Green][23] with Package [71] at [Jostiling] for 2 minute(s)
+Vincent Mccoy [Yellow][35] picked up Package [62] [tooth picks] 
+Gerald Baldwin [Green][23] with Package [71] at [Barcoding] for 2 minute(s)
+Omar Waters [Red][15] with Package [64] at [Jostiling] for 3 minute(s)
+Gerald Baldwin [Green][23] finished loading Package [71] [brocolli] on the delivery truck 
+Betsy Silva [Green][24] picked up Package [61] [perfume] 
+Omar Waters [Red][15] finished loading Package [64] [tire swing] on the delivery truck 
+Kelley Santos [Blue][5] with Package [63] at [Weighing] for 3 minute(s)
+Carmen Dawson [Red][16] picked up Package [60] [cat] 
+Vincent Mccoy [Yellow][35] with Package [62] at [Xraying] for 2 minute(s)
+Vincent Mccoy [Yellow][35] finished loading Package [62] [tooth picks] on the delivery truck 
+Veronica Sherman [Yellow][36] picked up Package [59] [paper] 
+Kelley Santos [Blue][5] with Package [63] at [Jostiling] for 1 minute(s) shaking the living hell out of it
+Kelley Santos [Blue][5] finished loading Package [63] [toothbrush] on the delivery truck 
+Betsy Silva [Green][24] with Package [61] at [Jostiling] for 3 minute(s)
+Gayle Kelley [Blue][6] picked up Package [58] [cell phone] 
+Betsy Silva [Green][24] finished loading Package [61] [perfume] on the delivery truck 
+Carmen Dawson [Red][16] with Package [60] at [Weighing] for 1 minute(s)
+Brian Perry [Green][25] picked up Package [57] [blanket] 
+Carmen Dawson [Red][16] with Package [60] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Carmen Dawson [Red][16] with Package [60] at [Xraying] for 3 minute(s)
+Carmen Dawson [Red][16] with Package [60] at [Barcoding] for 3 minute(s)
+Carmen Dawson [Red][16] finished loading Package [60] [cat] on the delivery truck 
+Whitney Lee [Red][17] picked up Package [56] [clothes] 
+Veronica Sherman [Yellow][36] with Package [59] at [Barcoding] for 1 minute(s)
+Gayle Kelley [Blue][6] with Package [58] at [Weighing] for 3 minute(s)
+Veronica Sherman [Yellow][36] with Package [59] at [Jostiling] for 1 minute(s)
+Veronica Sherman [Yellow][36] with Package [59] at [Xraying] for 1 minute(s)
+Gayle Kelley [Blue][6] finished loading Package [58] [cell phone] on the delivery truck 
+Whitney Lee [Red][17] with Package [56] at [Weighing] for 2 minute(s)
+Renee Miles [Blue][7] picked up Package [55] [couch] 
+Brian Perry [Green][25] with Package [57] at [Jostiling] for 1 minute(s) shaking the living hell out of it
+Veronica Sherman [Yellow][36] finished loading Package [59] [paper] on the delivery truck 
+Ralph Bowen [Yellow][37] picked up Package [54] [chapter book] 
+Brian Perry [Green][25] finished loading Package [57] [blanket] on the delivery truck 
+Cornelius Oliver [Green][26] picked up Package [53] [knife] 
+Whitney Lee [Red][17] finished loading Package [56] [clothes] on the delivery truck 
+Renee Miles [Blue][7] with Package [55] at [Barcoding] for 3 minute(s)
+Jacqueline Romero [Red][18] picked up Package [52] [watch] 
+Renee Miles [Blue][7] with Package [55] at [Xraying] for 1 minute(s)
+Renee Miles [Blue][7] with Package [55] at [Weighing] for 3 minute(s)
+Renee Miles [Blue][7] finished loading Package [55] [couch] on the delivery truck 
+Ralph Bowen [Yellow][37] with Package [54] at [Xraying] for 2 minute(s)
+Pam Todd [Blue][8] picked up Package [51] [thread] 
+Ralph Bowen [Yellow][37] with Package [54] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Ralph Bowen [Yellow][37] with Package [54] at [Weighing] for 3 minute(s)
+Ralph Bowen [Yellow][37] finished loading Package [54] [chapter book] on the delivery truck 
+Pam Todd [Blue][8] with Package [51] at [Jostiling] for 1 minute(s)
+Katie Weber [Yellow][38] picked up Package [50] [coasters] 
+Pam Todd [Blue][8] with Package [51] at [Xraying] for 1 minute(s)
+Pam Todd [Blue][8] with Package [51] at [Weighing] for 3 minute(s)
+Pam Todd [Blue][8] with Package [51] at [Barcoding] for 3 minute(s)
+Pam Todd [Blue][8] finished loading Package [51] [thread] on the delivery truck 
+Jacqueline Romero [Red][18] with Package [52] at [Barcoding] for 1 minute(s)
+Nichole Sanders [Blue][9] picked up Package [49] [glow stick] 
+Jacqueline Romero [Red][18] with Package [52] at [Weighing] for 3 minute(s)
+Jacqueline Romero [Red][18] with Package [52] at [Jostiling] for 3 minute(s) shaking the living hell out of it
+Jacqueline Romero [Red][18] finished loading Package [52] [watch] on the delivery truck 
+Cornelius Oliver [Green][26] with Package [53] at [Jostiling] for 1 minute(s)
+Jamie Morales [Red][19] picked up Package [48] [fork] 
+Cornelius Oliver [Green][26] with Package [53] at [Weighing] for 2 minute(s)
+Katie Weber [Yellow][38] with Package [50] at [Barcoding] for 2 minute(s)
+Katie Weber [Yellow][38] with Package [50] at [Jostiling] for 2 minute(s)
+Cornelius Oliver [Green][26] finished loading Package [53] [knife] on the delivery truck 
+Jared Rose [Green][27] picked up Package [47] [bowl] 
+Katie Weber [Yellow][38] finished loading Package [50] [coasters] on the delivery truck 
+Nichole Sanders [Blue][9] with Package [49] at [Weighing] for 2 minute(s)
+Lorenzo Colon [Yellow][39] picked up Package [46] [book] 
+Nichole Sanders [Blue][9] with Package [49] at [Xraying] for 3 minute(s)
+Nichole Sanders [Blue][9] with Package [49] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Jamie Morales [Red][19] with Package [48] at [Xraying] for 1 minute(s)
+Jamie Morales [Red][19] finished loading Package [48] [fork] on the delivery truck 
+Jonathan Barnes [Red][20] picked up Package [45] [photo album] 
+Nichole Sanders [Blue][9] finished loading Package [49] [glow stick] on the delivery truck 
+Doug Mendoza [Blue][10] picked up Package [44] [keyboard] 
+Jared Rose [Green][27] with Package [47] at [Jostiling] for 3 minute(s) shaking the living hell out of it
+Jared Rose [Green][27] finished loading Package [47] [bowl] on the delivery truck 
+Lorenzo Colon [Yellow][39] with Package [46] at [Barcoding] for 3 minute(s)
+Aaron Pittman [Green][28] picked up Package [43] [plastic fork] 
+Lorenzo Colon [Yellow][39] with Package [46] at [Jostiling] for 3 minute(s)
+Lorenzo Colon [Yellow][39] with Package [46] at [Weighing] for 1 minute(s)
+Lorenzo Colon [Yellow][39] finished loading Package [46] [book] on the delivery truck 
+Jonathan Barnes [Red][20] with Package [45] at [Xraying] for 3 minute(s)
+Madeline Thornton [Yellow][40] picked up Package [42] [chair] 
+Jonathan Barnes [Red][20] with Package [45] at [Jostiling] for 2 minute(s)
+Jonathan Barnes [Red][20] with Package [45] at [Barcoding] for 1 minute(s)
+Jonathan Barnes [Red][20] with Package [45] at [Weighing] for 1 minute(s)
+Doug Mendoza [Blue][10] with Package [44] at [Xraying] for 1 minute(s)
+Jonathan Barnes [Red][20] finished loading Package [45] [photo album] on the delivery truck 
+Doug Mendoza [Blue][10] with Package [44] at [Barcoding] for 2 minute(s)
+Myrtle Cross [Red][11] picked up Package [41] [sofa] 
+Doug Mendoza [Blue][10] finished loading Package [44] [keyboard] on the delivery truck 
+Aaron Pittman [Green][28] with Package [43] at [Barcoding] for 3 minute(s)
+Jose Drake [Blue][1] picked up Package [40] [grid paper] 
+Aaron Pittman [Green][28] with Package [43] at [Xraying] for 2 minute(s)
+Aaron Pittman [Green][28] with Package [43] at [Weighing] for 2 minute(s)
+Aaron Pittman [Green][28] with Package [43] at [Jostiling] for 2 minute(s)
+Aaron Pittman [Green][28] finished loading Package [43] [plastic fork] on the delivery truck 
+Jose Drake [Blue][1] with Package [40] at [Xraying] for 1 minute(s)
+Eula Long [Green][29] picked up Package [39] [eye liner] 
+Jose Drake [Blue][1] with Package [40] at [Jostiling] for 1 minute(s)
+Eula Long [Green][29] with Package [39] at [Weighing] for 3 minute(s)
+Jose Drake [Blue][1] finished loading Package [40] [grid paper] on the delivery truck 
+Jordan Erickson [Blue][2] picked up Package [38] [box] 
+Eula Long [Green][29] with Package [39] at [Xraying] for 1 minute(s)
+Eula Long [Green][29] finished loading Package [39] [eye liner] on the delivery truck 
+Karl Ward [Green][30] picked up Package [37] [fake flowers] 
+Madeline Thornton [Yellow][40] with Package [42] at [Xraying] for 3 minute(s)
+Madeline Thornton [Yellow][40] with Package [42] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Madeline Thornton [Yellow][40] with Package [42] at [Barcoding] for 3 minute(s)
+Madeline Thornton [Yellow][40] finished loading Package [42] [chair] on the delivery truck 
+Myrtle Cross [Red][11] with Package [41] at [Barcoding] for 3 minute(s)
+Rita Pratt [Yellow][31] picked up Package [36] [shirt] 
+Myrtle Cross [Red][11] with Package [41] at [Jostiling] for 2 minute(s)
+Myrtle Cross [Red][11] with Package [41] at [Weighing] for 1 minute(s)
+Myrtle Cross [Red][11] with Package [41] at [Xraying] for 2 minute(s)
+Myrtle Cross [Red][11] finished loading Package [41] [sofa] on the delivery truck 
+Byron Newman [Red][12] picked up Package [35] [sandal] 
+Jordan Erickson [Blue][2] with Package [38] at [Weighing] for 3 minute(s)
+Jordan Erickson [Blue][2] with Package [38] at [Xraying] for 2 minute(s)
+Byron Newman [Red][12] with Package [35] at [Jostiling] for 3 minute(s)
+Rita Pratt [Yellow][31] with Package [36] at [Barcoding] for 1 minute(s)
+Rita Pratt [Yellow][31] finished loading Package [36] [shirt] on the delivery truck 
+Johnny Hale [Yellow][32] picked up Package [34] [conditioner] 
+Jordan Erickson [Blue][2] finished loading Package [38] [box] on the delivery truck 
+Don Stanley [Blue][3] picked up Package [33] [piano] 
+Byron Newman [Red][12] with Package [35] at [Weighing] for 1 minute(s)
+Byron Newman [Red][12] finished loading Package [35] [sandal] on the delivery truck 
+Karl Ward [Green][30] with Package [37] at [Weighing] for 1 minute(s)
+Kelly Green [Red][13] picked up Package [32] [shoe lace] 
+Karl Ward [Green][30] finished loading Package [37] [fake flowers] on the delivery truck 
+Kelly Green [Red][13] with Package [32] at [Weighing] for 1 minute(s)
+Brett Wagner [Green][21] picked up Package [31] [table] 
+Kelly Green [Red][13] with Package [32] at [Jostiling] for 3 minute(s)
+Brett Wagner [Green][21] with Package [31] at [Barcoding] for 1 minute(s)
+Brett Wagner [Green][21] with Package [31] at [Weighing] for 1 minute(s)
+Brett Wagner [Green][21] finished loading Package [31] [table] on the delivery truck 
+Barbara Yates [Green][22] picked up Package [30] [canvas] 
+Kelly Green [Red][13] finished loading Package [32] [shoe lace] on the delivery truck 
+Johnny Hale [Yellow][32] with Package [34] at [Xraying] for 1 minute(s)
+Danny Stewart [Red][14] picked up Package [29] [blouse] 
+Johnny Hale [Yellow][32] with Package [34] at [Barcoding] for 2 minute(s)
+Johnny Hale [Yellow][32] with Package [34] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Johnny Hale [Yellow][32] finished loading Package [34] [conditioner] on the delivery truck 
+Danny Stewart [Red][14] with Package [29] at [Weighing] for 2 minute(s)
+Eric Lane [Yellow][33] picked up Package [28] [bananas] 
+Danny Stewart [Red][14] with Package [29] at [Barcoding] for 3 minute(s)
+Danny Stewart [Red][14] with Package [29] at [Jostiling] for 3 minute(s) shaking the living hell out of it
+Danny Stewart [Red][14] with Package [29] at [Xraying] for 2 minute(s)
+Danny Stewart [Red][14] finished loading Package [29] [blouse] on the delivery truck 
+Eric Lane [Yellow][33] with Package [28] at [Barcoding] for 2 minute(s)
+Omar Waters [Red][15] picked up Package [27] [milk] 
+Eric Lane [Yellow][33] with Package [28] at [Weighing] for 2 minute(s)
+Eric Lane [Yellow][33] with Package [28] at [Xraying] for 1 minute(s)
+Eric Lane [Yellow][33] with Package [28] at [Jostiling] for 3 minute(s) shaking the living hell out of it
+Eric Lane [Yellow][33] finished loading Package [28] [bananas] on the delivery truck 
+Don Stanley [Blue][3] with Package [33] at [Barcoding] for 2 minute(s)
+Cecil Burton [Yellow][34] picked up Package [26] [stop sign] 
+Don Stanley [Blue][3] with Package [33] at [Weighing] for 3 minute(s)
+Don Stanley [Blue][3] with Package [33] at [Jostiling] for 3 minute(s) shaking the living hell out of it
+Don Stanley [Blue][3] finished loading Package [33] [piano] on the delivery truck 
+Barbara Yates [Green][22] with Package [30] at [Xraying] for 3 minute(s)
+Betty Perez [Blue][4] picked up Package [25] [house] 
+Barbara Yates [Green][22] with Package [30] at [Jostiling] for 2 minute(s)
+Barbara Yates [Green][22] with Package [30] at [Weighing] for 3 minute(s)
+Barbara Yates [Green][22] with Package [30] at [Barcoding] for 2 minute(s)
+Omar Waters [Red][15] with Package [27] at [Weighing] for 3 minute(s)
+Barbara Yates [Green][22] finished loading Package [30] [canvas] on the delivery truck 
+Gerald Baldwin [Green][23] picked up Package [24] [nail clippers] 
+Omar Waters [Red][15] with Package [27] at [Xraying] for 1 minute(s)
+Cecil Burton [Yellow][34] with Package [26] at [Weighing] for 3 minute(s)
+Betty Perez [Blue][4] with Package [25] at [Jostiling] for 1 minute(s)
+Omar Waters [Red][15] finished loading Package [27] [milk] on the delivery truck 
+Betty Perez [Blue][4] finished loading Package [25] [house] on the delivery truck 
+Carmen Dawson [Red][16] picked up Package [23] [greeting card] 
+Kelley Santos [Blue][5] picked up Package [22] [controller] 
+Cecil Burton [Yellow][34] finished loading Package [26] [stop sign] on the delivery truck 
+Gerald Baldwin [Green][23] with Package [24] at [Weighing] for 3 minute(s)
+Vincent Mccoy [Yellow][35] picked up Package [21] [zipper] 
+Gerald Baldwin [Green][23] with Package [24] at [Barcoding] for 3 minute(s)
+Carmen Dawson [Red][16] with Package [23] at [Weighing] for 2 minute(s)
+Carmen Dawson [Red][16] with Package [23] at [Jostiling] for 1 minute(s) shaking the living hell out of it
+Gerald Baldwin [Green][23] finished loading Package [24] [nail clippers] on the delivery truck 
+Kelley Santos [Blue][5] with Package [22] at [Barcoding] for 1 minute(s)
+Betsy Silva [Green][24] picked up Package [20] [keys] 
+Carmen Dawson [Red][16] with Package [23] at [Xraying] for 2 minute(s)
+Kelley Santos [Blue][5] with Package [22] at [Weighing] for 3 minute(s)
+Carmen Dawson [Red][16] finished loading Package [23] [greeting card] on the delivery truck 
+Whitney Lee [Red][17] picked up Package [19] [spoon] 
+Kelley Santos [Blue][5] finished loading Package [22] [controller] on the delivery truck 
+Vincent Mccoy [Yellow][35] with Package [21] at [Weighing] for 1 minute(s)
+Gayle Kelley [Blue][6] picked up Package [18] [seat belt] 
+Vincent Mccoy [Yellow][35] with Package [21] at [Jostiling] for 3 minute(s)
+Vincent Mccoy [Yellow][35] with Package [21] at [Xraying] for 1 minute(s)
+Vincent Mccoy [Yellow][35] finished loading Package [21] [zipper] on the delivery truck 
+Gayle Kelley [Blue][6] with Package [18] at [Jostiling] for 3 minute(s) shaking the living hell out of it
+Veronica Sherman [Yellow][36] picked up Package [17] [cookie jar] 
+Gayle Kelley [Blue][6] with Package [18] at [Xraying] for 2 minute(s)
+Gayle Kelley [Blue][6] with Package [18] at [Barcoding] for 1 minute(s)
+Gayle Kelley [Blue][6] with Package [18] at [Weighing] for 3 minute(s)
+Gayle Kelley [Blue][6] finished loading Package [18] [seat belt] on the delivery truck 
+Whitney Lee [Red][17] with Package [19] at [Xraying] for 3 minute(s)
+Renee Miles [Blue][7] picked up Package [16] [bracelet] 
+Whitney Lee [Red][17] with Package [19] at [Weighing] for 2 minute(s)
+Whitney Lee [Red][17] finished loading Package [19] [spoon] on the delivery truck 
+Jacqueline Romero [Red][18] picked up Package [15] [water bottle] 
+Betsy Silva [Green][24] with Package [20] at [Jostiling] for 2 minute(s)
+Betsy Silva [Green][24] with Package [20] at [Xraying] for 1 minute(s)
+Jacqueline Romero [Red][18] with Package [15] at [Jostiling] for 3 minute(s)
+Renee Miles [Blue][7] with Package [16] at [Barcoding] for 1 minute(s)
+Renee Miles [Blue][7] finished loading Package [16] [bracelet] on the delivery truck 
+Betsy Silva [Green][24] with Package [20] at [Weighing] for 3 minute(s)
+Pam Todd [Blue][8] picked up Package [14] [beef] 
+Jacqueline Romero [Red][18] finished loading Package [15] [water bottle] on the delivery truck 
+Jamie Morales [Red][19] picked up Package [13] [rusty nail] 
+Betsy Silva [Green][24] finished loading Package [20] [keys] on the delivery truck 
+Veronica Sherman [Yellow][36] with Package [17] at [Weighing] for 3 minute(s)
+Brian Perry [Green][25] picked up Package [12] [drawer] 
+Veronica Sherman [Yellow][36] with Package [17] at [Jostiling] for 1 minute(s)
+Veronica Sherman [Yellow][36] with Package [17] at [Barcoding] for 2 minute(s)
+Veronica Sherman [Yellow][36] with Package [17] at [Xraying] for 1 minute(s)
+Veronica Sherman [Yellow][36] finished loading Package [17] [cookie jar] on the delivery truck 
+Ralph Bowen [Yellow][37] picked up Package [11] [hanger] 
+Pam Todd [Blue][8] with Package [14] at [Weighing] for 1 minute(s)
+Pam Todd [Blue][8] with Package [14] at [Xraying] for 3 minute(s)
+Pam Todd [Blue][8] finished loading Package [14] [beef] on the delivery truck 
+Nichole Sanders [Blue][9] picked up Package [10] [money] 
+Jamie Morales [Red][19] with Package [13] at [Barcoding] for 2 minute(s)
+Jamie Morales [Red][19] with Package [13] at [Jostiling] for 2 minute(s) shaking the living hell out of it
+Jamie Morales [Red][19] with Package [13] at [Weighing] for 1 minute(s)
+Jamie Morales [Red][19] with Package [13] at [Xraying] for 2 minute(s)
+Brian Perry [Green][25] with Package [12] at [Weighing] for 1 minute(s)
+Brian Perry [Green][25] with Package [12] at [Barcoding] for 1 minute(s)
+Brian Perry [Green][25] finished loading Package [12] [drawer] on the delivery truck 
+Jamie Morales [Red][19] finished loading Package [13] [rusty nail] on the delivery truck 
+Cornelius Oliver [Green][26] picked up Package [9] [sponge] 
+Jonathan Barnes [Red][20] picked up Package [8] [clock] 
+Ralph Bowen [Yellow][37] with Package [11] at [Xraying] for 1 minute(s)
+Ralph Bowen [Yellow][37] with Package [11] at [Barcoding] for 1 minute(s)
+Ralph Bowen [Yellow][37] finished loading Package [11] [hanger] on the delivery truck 
+Katie Weber [Yellow][38] picked up Package [7] [needle] 
+Cornelius Oliver [Green][26] with Package [9] at [Barcoding] for 3 minute(s)
+Cornelius Oliver [Green][26] finished loading Package [9] [sponge] on the delivery truck 
+Jared Rose [Green][27] picked up Package [6] [credit card] 
+Katie Weber [Yellow][38] with Package [7] at [Weighing] for 2 minute(s)
+Katie Weber [Yellow][38] with Package [7] at [Xraying] for 2 minute(s)
+Katie Weber [Yellow][38] with Package [7] at [Barcoding] for 3 minute(s)
+Nichole Sanders [Blue][9] with Package [10] at [Xraying] for 2 minute(s)
+Nichole Sanders [Blue][9] finished loading Package [10] [money] on the delivery truck 
+Doug Mendoza [Blue][10] picked up Package [5] [thermostat] 
+Katie Weber [Yellow][38] finished loading Package [7] [needle] on the delivery truck 
+Lorenzo Colon [Yellow][39] picked up Package [4] [chalk] 
+Jonathan Barnes [Red][20] with Package [8] at [Weighing] for 3 minute(s)
+Jonathan Barnes [Red][20] with Package [8] at [Jostiling] for 3 minute(s)
+Jonathan Barnes [Red][20] with Package [8] at [Barcoding] for 1 minute(s)
+Jonathan Barnes [Red][20] finished loading Package [8] [clock] on the delivery truck 
+Myrtle Cross [Red][11] picked up Package [3] [toilet] 
+Jared Rose [Green][27] with Package [6] at [Jostiling] for 3 minute(s)
+Jared Rose [Green][27] with Package [6] at [Weighing] for 3 minute(s)
+Jared Rose [Green][27] with Package [6] at [Xraying] for 3 minute(s)
+Jared Rose [Green][27] with Package [6] at [Barcoding] for 2 minute(s)
+Jared Rose [Green][27] finished loading Package [6] [credit card] on the delivery truck 
+Myrtle Cross [Red][11] with Package [3] at [Xraying] for 1 minute(s)
+Aaron Pittman [Green][28] picked up Package [2] [flowers] 
+Myrtle Cross [Red][11] with Package [3] at [Jostiling] for 3 minute(s)
+Myrtle Cross [Red][11] with Package [3] at [Barcoding] for 1 minute(s)
+Myrtle Cross [Red][11] with Package [3] at [Weighing] for 2 minute(s)
+Aaron Pittman [Green][28] with Package [2] at [Barcoding] for 3 minute(s)
+Myrtle Cross [Red][11] finished loading Package [3] [toilet] on the delivery truck 
+Byron Newman [Red][12] picked up Package [1] [USB drive] 
+Aaron Pittman [Green][28] with Package [2] at [Xraying] for 3 minute(s)
+Doug Mendoza [Blue][10] with Package [5] at [Barcoding] for 2 minute(s)
+Lorenzo Colon [Yellow][39] with Package [4] at [Weighing] for 1 minute(s)
+Lorenzo Colon [Yellow][39] finished loading Package [4] [chalk] on the delivery truck 
+Byron Newman [Red][12] with Package [1] at [Weighing] for 1 minute(s)
+Madeline Thornton [Yellow][40] picked up Package [0] [tv] 
+Doug Mendoza [Blue][10] finished loading Package [5] [thermostat] on the delivery truck 
+Byron Newman [Red][12] finished loading Package [1] [USB drive] on the delivery truck 
+Madeline Thornton [Yellow][40] with Package [0] at [Jostiling] for 3 minute(s) shaking the living hell out of it
+Aaron Pittman [Green][28] finished loading Package [2] [flowers] on the delivery truck 
+Madeline Thornton [Yellow][40] with Package [0] at [Weighing] for 2 minute(s)
+Madeline Thornton [Yellow][40] with Package [0] at [Barcoding] for 3 minute(s)
+Madeline Thornton [Yellow][40] finished loading Package [0] [tv] on the delivery truck 
+
+Final Results: 
+
+Team [Blue] processed [20] packages
+Team [Red] processed [22] packages
+Team [Green] processed [18] packages
+Team [Yellow] processed [20] packages
+Myrtle Cross delivered the most packages [3]

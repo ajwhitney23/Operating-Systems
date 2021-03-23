@@ -31,29 +31,9 @@ int stat_o[4] = {0, 0, 0, 0};
 int belt = 0;
 int shipping_debug = 0;
 
-void print_worker(struct worker *w)
-{
-    printf("Worker %d ", w->id);
-    printf("Team: %s ", team_color_n[w->color]);
-    printf("Name: %s \n ", w->name);
-}
-
-void print_package(struct package *p)
-{
-    printf("Package %d \n ", p->id);
-    printf("Content: %s \n ", p->content);
-    for (int i = 0; i < p->numSteps; i++)
-    {
-        printf("%d ~ %s \n ", i, steps_n[p->order[i]]);
-    }
-    if (p->isFragile)
-    {
-        printf("FRAGILE \n ");
-    }
-    printf("\n ");
-}
-
-
+/*
+ * prints results once all packages have been processsed
+ */
 void print_results() {
 
     int highest = 0;
@@ -73,6 +53,12 @@ void print_results() {
     printf("%s delivered the most packages [%d]\n", worker_structz[id]->name, highest);
 }
 
+/*
+ * function assigned to each thread
+ * Has each worker grab a package, go through all the stages, and put the package on the delievery truck.
+ * Semaphores implemented in this function to provide convistency between all threads
+ * 
+ */
 void *do_work(void *arg)
 {
     while (1)
@@ -80,7 +66,7 @@ void *do_work(void *arg)
         struct worker *me = ((struct worker *)arg);
         sem_wait(&team_sems[me->color]);
         if (ppp == NULL)
-        {
+        { /* done processing packages */
             sem_post(&(team_sems[me->color]));
             return 0;
         }
@@ -98,6 +84,7 @@ void *do_work(void *arg)
         int stat_visit = 0;
         int current_station;
         sem_wait(&allocate_stat_sem);
+        /* aqquire all sems for stations needed */
         for(int i = 0; i < me->currentPackage->numSteps; i++) {
             sem_wait(&stat_sems[me->currentPackage->order[i]]);
         }
@@ -105,17 +92,6 @@ void *do_work(void *arg)
         do
         {
             current_station = me->currentPackage->order[stat_visit];
-            if(stat_visit != 1) {
-                sem_wait(&conveyor_sem);
-                belt++;
-                printf("Package [%d][%s] is now moving on the conveyor belt\n", me->currentPackage->id, me->currentPackage->content);
-                if(shipping_debug)  {
-                    printf("Conveyor Belt : %d \n", belt);
-                }
-                sleep(1);
-                belt--;
-                sem_post(&conveyor_sem);
-            }
             if(shipping_debug) {
                 stat_o[current_station]++;
                 printf("Stations Active: W %d | B %d | X %d | J %d\n", stat_o[0], stat_o[1], stat_o[2], stat_o[3]);
@@ -132,8 +108,8 @@ void *do_work(void *arg)
                 stat_o[current_station]--;
                 printf("Stations Active: W %d | B %d | X %d | J %d\n", stat_o[0], stat_o[1], stat_o[2], stat_o[3]);
             }
-            sem_post(&stat_sems[current_station]);
-        } while (me->currentPackage->numSteps != stat_visit);
+            sem_post(&stat_sems[current_station]); /* release station sem when finished and on next station */
+        } while (me->currentPackage->numSteps != stat_visit); /* loop until all stations visited */
 
         printf("%s [%s][%d] finished loading Package [%d] [%s] on the delivery truck \n", me->name, team_color_n[me->color], me->id, me->currentPackage->id, me->currentPackage->content);
         me->packages_proc++;
@@ -152,6 +128,9 @@ void *do_work(void *arg)
     }
 }
 
+/*
+ * Creates a struct package to be added to the ppp que
+ */
 struct package *create_package(int id, char *content)
 {
     struct package *temp = malloc(sizeof(struct package));
@@ -186,6 +165,9 @@ struct package *create_package(int id, char *content)
     return temp;
 }
 
+/*
+ * creates a stuck worker to be passed in as an arg to the threads
+ */ 
 struct worker *create_worker(int id, char *buff)
 {
     struct worker *temp = malloc(sizeof(struct worker));
@@ -199,6 +181,9 @@ struct worker *create_worker(int id, char *buff)
     return temp;
 }
 
+/*
+ * "main" function for shipping
+ */
 int run_shipping(int arg)
 {
     shipping_debug = arg;

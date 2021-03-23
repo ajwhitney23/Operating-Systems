@@ -28,6 +28,9 @@ int jugglersRun = 0;
 int soloRun = 0;
 int summer_debug = 0;
 
+/*
+ * have last thread determine next group to go on stage using weighted odds
+ */
 void set_next_group()
 {
     int numGroups;
@@ -81,6 +84,9 @@ void leave_pos(int id)
     }
 }
 
+/*
+ * function for each dancer thread
+ */
 void *dancer(void *arg)
 {
     if(isFirst == 0) {
@@ -113,6 +119,9 @@ void *dancer(void *arg)
     free(arg);
 }
 
+/*
+ * function for each juggler thread
+ */
 void *juggler(void *arg)
 {
     pthread_mutex_lock(&lock);
@@ -141,6 +150,9 @@ void *juggler(void *arg)
     free(arg);
 }
 
+/*
+ * function for each soloist thread
+ */
 void *soloist(void *arg)
 {
     pthread_mutex_lock(&lock);
@@ -169,6 +181,9 @@ void *soloist(void *arg)
     free(arg);
 }
 
+/*
+ * "main" function for problem 1
+ */
 int run_summer(int arg)
 {
     summer_debug = arg;
